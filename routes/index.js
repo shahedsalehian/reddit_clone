@@ -1,15 +1,10 @@
-var express = require("express");
-var router  = express.Router();
-var User    = require("../models/user");
+const express = require("express");
+const router  = express.Router();
+const User    = require("../models/user");
 
 
 router.get("/", function(req,res){
-    res.send("INDEX PAGE");
-})
-
-router.get("/s/:sub", function(req,res){
-    var sub = req.params.sub;
-    res.send(sub + " Subreddit");
+    res.send("all subreddits");
 })
 
 router.get("/signup",function(req,res) {

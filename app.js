@@ -1,11 +1,11 @@
-var express = require("express");
-var mongoose = require("mongoose");
-var bodyParser = require("body-parser");
-var app = express();
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
+const app = express();
 
-var User = require("./models/user");
+const User = require("./models/user");
 
-var indexRoutes = require("./routes/index");
+const indexRoutes = require("./routes/index");
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({extended: true}));
@@ -16,7 +16,9 @@ mongoose.Promise = global.Promise
 
 app.use("/", indexRoutes);
 
+const port = (process.env.PORT || 3000)
 
-app.listen("3000", function(req,res){
-    console.log("Server started on port 3000");
+
+app.listen(port, function(req,res){
+    console.log(`Server started on port ${port}`);
 })
