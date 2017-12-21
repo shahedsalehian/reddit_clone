@@ -4,15 +4,19 @@ const User    = require("../models/user");
 
 
 router.get("/", function(req,res){
-    res.send("all subreddits");
+    res.render("landing");
 })
 
 router.get("/signup",function(req,res) {
-    res.send("SIGN-UP PAGE");
+    res.render("signup");
+})
+
+router.post("/signup", function(req,res){
+	res.send("signed up");
 })
 
 router.get("/login", function(req,res){
-    res.send("LOGIN PAGE");
+    res.render("login");
 })
 
 module.exports = router;
