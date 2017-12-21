@@ -8,5 +8,13 @@ router.get("/s/:sub", function(req,res){
     res.send(sub + " Subreddit");
 })
 
+router.get("/submit", function(req,res){
+	res.send("Submit your post here");
+});
+
+router.post("/submit", function(req,res){
+	res.send("Post submitted");
+});
+
 
 module.exports = router;
