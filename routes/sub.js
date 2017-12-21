@@ -1,6 +1,7 @@
 const express = require("express");
 const router  = express.Router();
 const User    = require("../models/user");
+const Sub     = require("../models/sub");
 
 
 router.get("/:sub", function(req,res){
