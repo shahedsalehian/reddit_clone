@@ -6,7 +6,7 @@ const Sub     = require("../models/sub");
 
 router.get("/:sub", function(req,res){
     const sub = req.params.sub;
-    res.render("sub");
+    res.render("sub", {sub: sub});
 })
 
 router.get("/:sub/submit", function(req,res){
