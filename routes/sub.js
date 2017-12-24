@@ -10,7 +10,7 @@ router.get("/", function(req,res){
 	   	if(err){
 	   		console.log(err);
 	   	}else{
-	  		res.render("subs/index", {subs: subs}); 		
+	  		res.render("subs/index", {subs: subs});
 	   	}
    })
  // res.render("subs/index");
@@ -23,13 +23,13 @@ router.get("/new", function(req,res){
 
 //SHOW
 router.get("/:id", function(req,res){
-	// Sub.findById(req.params.id).exec(err,foundSub){
-	// 	if(err){
-	// 		console.log(err);
-	// 	}else{
-	// 		res.render("show",{sub: foundSub});
-	// 	}
-	// }
+	Sub.findById(req.params.id).populate("posts").exec(function(err,foundSub){ //the "posts" from the populate function is defined in the sub model
+		if(err){
+			console.log(err);
+		}else{
+			res.render("subs/show",{sub: foundSub});
+		}
+	});
 });
 
 //CREATE

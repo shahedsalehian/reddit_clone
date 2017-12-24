@@ -1,0 +1,8 @@
+<% include ../partials/header %>
+<h1>New Post for <%= sub.subname %></h1>
+<form class="" action="/subs/<%= sub.id %>/posts" method="post">
+  <input type="text" name="title" placeholder="Title">
+  <input type="text" name="text" placeholder="What is your post about?">
+  <input type="submit" name="Submit" value="Submit">
+</form>
+<% include ../partials/footer %>

@@ -1,9 +1,12 @@
 <% include ../partials/header %>
 
-<h1>Index</h1>
+<h1>All Subs</h1>
+<ul>
 <% subs.forEach(function(sub){ %>
-	<h4><%= sub.subname %></h4>
-<%});%>
+	<li><a href="/subs/<%= sub.id %>"><%= sub.subname %></a></li>
+<% }); %>
+</ul>
+<a href="/">Go Back</a>
 
 
 <% include ../partials/footer %>

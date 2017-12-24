@@ -1,3 +1,10 @@
 <%- include ../partials/header %>
-<h1>show</h1>
+<h1><%= sub.subname %></h1>
+<a href="/subs/<%= sub.id %>/posts/new">New Post</a>
+<ul>
+  <% sub.posts.forEach(function(post){ %>
+    <li>post.text</li>
+  <% }) %>
+</ul>
+<a href="/subs">Go Back</a>
 <%- include ../partials/footer %>
