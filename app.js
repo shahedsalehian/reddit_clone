@@ -32,7 +32,7 @@ mongoose.Promise = global.Promise;
 
 //Routes use
 app.use("/", indexRoutes);
-app.use("/s/", subRoutes);
+app.use("/subs", subRoutes);
 
 
 // Server startup
