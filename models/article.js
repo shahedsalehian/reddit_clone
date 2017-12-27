@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const PostSchema = new mongoose.Schema({
+const ArticleSchema = new mongoose.Schema({
     title: String,
     text: String
     //time: String,
@@ -10,6 +10,8 @@ const PostSchema = new mongoose.Schema({
     // },
     // comments: [ {type: mongoose.Schema.Types.ObjectId, ref: "Comment"} ],
 
+},{
+  usePushEach: true
 });
 
-module.exports = mongoose.model("Post", PostSchema);
+module.exports = mongoose.model("Article", ArticleSchema);

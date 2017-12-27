@@ -34,8 +34,8 @@ router.get("/:id", function(req,res){
 
 //CREATE
 router.post("/", function(req,res){
-	var subname = req.body.subname;
-	var newSub = {subname: subname};
+	var name = req.body.name;
+	var newSub = {name: name};
 	Sub.create(newSub, function(err, newlyCreatedSub){
 		if(err){
 			console.log(err);

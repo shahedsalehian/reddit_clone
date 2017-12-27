@@ -3,14 +3,14 @@ const router = express.Router({
   mergeParams: true // merge params from all the defined models
 });
 const Sub = require('../models/sub');
-const Post = require('../models/post');
+const Article = require('../models/article');
 
 router.get("/new", function(req,res){
   Sub.findById(req.params.id, function(err, sub){
     if(err){
       console.log(err);
     }else{
-      res.render("posts/new", {sub: sub});
+      res.render("articles/new", {sub: sub});
     }
   });
 });
@@ -18,15 +18,17 @@ router.get("/new", function(req,res){
 router.post("/", function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
+      console.log(err);
       res.redirect("/subs");
     }else{
-      Post.create(req.body.text, function(err,post){
+      Article.create(req.body.article, function(err,article){
         if(err){
           console.log(err);
         }else{
-            console.log(post);
-            sub.posts.push(post);
+            console.log(article);
+            sub.articles.push(article);
             sub.save();
+            console.log(sub);
             res.redirect("/subs/" + sub._id);
         }
       });

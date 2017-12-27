@@ -7,18 +7,19 @@ const app 				    = express();
 
 //models
 const User 				  = require("./models/user");
-const Post 				  = require("./models/post");
+const Article 			= require("./models/article");
 const Sub 				  = require("./models/sub");
 const Comment 			= require("./models/comment");
 
 //Routes
 const indexRoutes 	= require("./routes/index");
 const subRoutes 		= require("./routes/sub");
-const postRoutes    = require("./routes/post");
+const articleRoutes    = require("./routes/article");
 
 //MongoDB Config
 mongoose.connect("mongodb://localhost/reddit", {useMongoClient: true});
 mongoose.Promise = global.Promise;
+// mongoose.set('debug', true)
 
 //app Config
 app.set("view engine", "ejs");
@@ -31,7 +32,7 @@ app.use(express.static(__dirname + "/public"));
 //Routes use
 app.use("/", indexRoutes);
 app.use("/subs", subRoutes);
-app.use("/subs/:id/posts", postRoutes);
+app.use("/subs/:id/articles", articleRoutes);
 //app.use("/subs/:id/posts/:post_id/comments", commentRoutes);
 
 // Server startup

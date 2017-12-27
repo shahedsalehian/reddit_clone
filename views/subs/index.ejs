@@ -3,7 +3,7 @@
 <h1>All Subs</h1>
 <ul>
 <% subs.forEach(function(sub){ %>
-	<li><a href="/subs/<%= sub.id %>"><%= sub.subname %></a></li>
+	<li><a href="/subs/<%= sub._id %>"><%= sub.name %></a></li>
 <% }); %>
 </ul>
 <a href="/">Go Back</a>

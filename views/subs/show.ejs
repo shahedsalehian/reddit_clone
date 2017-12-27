@@ -1,9 +1,9 @@
 <%- include ../partials/header %>
-<h1><%= sub.subname %></h1>
-<a href="/subs/<%= sub.id %>/posts/new">New Post</a>
+<h1><%= sub.name %></h1>
+<a href="/subs/<%= sub._id %>/articles/new">New article</a>
 <ul>
-  <% sub.posts.forEach(function(post){ %>
-    <li>post.text</li>
+  <% sub.articles.forEach(function(article){ %>
+    <li><%= article.title %></li>
   <% }) %>
 </ul>
 <a href="/subs">Go Back</a>
