@@ -3,7 +3,7 @@
 <a href="/subs/<%= sub._id %>/articles/new">New article</a>
 <ul>
   <% sub.articles.forEach(function(article){ %>
-    <li><%= article.title %></li>
+    <li><a href="/subs/<%= sub._id %>/articles/<%= article._id %>"><%= article.title %></a></li>
   <% }) %>
 </ul>
 <a href="/subs">Go Back</a>
