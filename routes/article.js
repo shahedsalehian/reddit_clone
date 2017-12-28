@@ -4,6 +4,7 @@ const router = express.Router({
 });
 const Sub = require('../models/sub');
 const Article = require('../models/article');
+const moment = require('moment');
 
 router.get("/new", function(req,res){
   Sub.findById(req.params.id, function(err, sub){
@@ -26,6 +27,8 @@ router.post("/", function(req,res){
           console.log(err);
         }else{
             console.log(article);
+            article.time = moment().format("dddd, MMMM Do YYYY");
+            article.save()
             sub.articles.push(article);
             sub.save();
             console.log(sub);
@@ -35,5 +38,16 @@ router.post("/", function(req,res){
     }
   });
 });
+
+router.get("/:article_id", function(req,res){
+  Article.findById(req.params.article_id, function(err,article){
+    if(err){
+      console.log(err);
+    }else{
+      res.render("articles/show", {article: article, sub: req.params.id});
+    }
+  });
+});
+
 
 module.exports = router;

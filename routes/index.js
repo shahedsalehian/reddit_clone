@@ -1,10 +1,17 @@
 const express = require("express");
 const router  = express.Router();
 const User    = require("../models/user");
+const Sub = require('../models/sub');
 
 
 router.get("/", function(req,res){
-    res.render("landing");
+  Sub.find({}, function(err,subs){
+    if(err){
+      console.log(err);
+    }else{
+      res.render("landing", {subs: subs});
+    }
+  })
 });
 
 router.get("/signup",function(req,res) {

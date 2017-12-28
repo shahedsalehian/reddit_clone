@@ -1,10 +1,8 @@
 <% include partials/header %>
-
-<h1>Welcome to Reddit Clone</h1>
-
 <ul>
-	<li><a href="/subs">All Sub</a></li>
-	<li><a href="/subs/new">Create Your Own Sub!</a></li>
+	<% subs.forEach(function(sub){ %>
+		<li><a href="/subs/<%= sub._id %>"><%= sub.name %></a></li>
+	<% }) %>
 </ul>
 
 <% include partials/footer  %>
