@@ -4,12 +4,13 @@ const User    = require("../models/user");
 const Sub = require('../models/sub');
 
 
+//Index Page for All subreddits
 router.get("/", function(req,res){
   Sub.find({}, function(err,subs){
     if(err){
       console.log(err);
     }else{
-      res.render("landing", {subs: subs});
+      res.render("index", {subs: subs});
     }
   })
 });

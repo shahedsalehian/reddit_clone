@@ -14,8 +14,8 @@ const Comment 			= require("./models/comment");
 //Routes
 const indexRoutes 	= require("./routes/index");
 const subRoutes 		= require("./routes/sub");
-const articleRoutes    = require("./routes/article");
-
+const articleRoutes = require("./routes/article");
+const commentRoutes = require("./routes/comment");
 //MongoDB Config
 mongoose.connect("mongodb://localhost/reddit", {useMongoClient: true});
 mongoose.Promise = global.Promise;
@@ -33,11 +33,10 @@ app.use(express.static(__dirname + "/public"));
 app.use("/", indexRoutes);
 app.use("/subs", subRoutes);
 app.use("/subs/:id/articles", articleRoutes);
-//app.use("/subs/:id/posts/:post_id/comments", commentRoutes);
+app.use("/subs/:id/articles/:article_id/comments", commentRoutes);
 
 // Server startup
 const port = (process.env.PORT || 3000);
-
 app.listen(port, function(req,res){
     console.log(`Server started on port ${port}`);
 });

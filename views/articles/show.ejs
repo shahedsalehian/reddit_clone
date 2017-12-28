@@ -1,6 +1,18 @@
 <% include ../partials/header %>
-<h1><%= article.title %></h1>
-<p><%= article.time %></p>
+<h1><%= article.title %></h1><%= article.time %>
 <p><%= article.text %></p>
+<h2>Comments:</h2>
+<% article.comments.forEach(function(comment){ %>
+  <p><%= comment.text %></p>
+<% }) %>
+
+<form action="/subs/<%= sub %>/articles/<%= article._id %>/comments/" method="post">
+  <div class="form-group">
+    <input class="form-control" type="text" name="comment[text]" placeholder="Enter Your Comment Here">
+  </div>
+  <div class="form-group">
+    <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+  </div>
+</form>
 <a href="/subs/<%= sub %>">GO BACK</a>
 <% include ../partials/footer %>

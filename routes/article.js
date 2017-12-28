@@ -6,6 +6,8 @@ const Sub = require('../models/sub');
 const Article = require('../models/article');
 const moment = require('moment');
 
+
+//NEW ARTICLE
 router.get("/new", function(req,res){
   Sub.findById(req.params.id, function(err, sub){
     if(err){
@@ -16,6 +18,7 @@ router.get("/new", function(req,res){
   });
 });
 
+//CREATE NEW ARTICLE
 router.post("/", function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
@@ -39,8 +42,9 @@ router.post("/", function(req,res){
   });
 });
 
+//SHOW ARTICLE
 router.get("/:article_id", function(req,res){
-  Article.findById(req.params.article_id, function(err,article){
+  Article.findById(req.params.article_id).populate("comments").exec(function(err,article){
     if(err){
       console.log(err);
     }else{
