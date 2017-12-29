@@ -29,12 +29,12 @@ router.post("/", function(req,res){
         if(err){
           console.log(err);
         }else{
-            console.log(article);
+            article.author.id = req.user._id;
+            article.author.username = req.user.username;
             article.time = moment().format("dddd, MMMM Do YYYY");
             article.save()
             sub.articles.push(article);
             sub.save();
-            console.log(sub);
             res.redirect("/subs/" + sub._id);
         }
       });

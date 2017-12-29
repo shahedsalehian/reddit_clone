@@ -10,6 +10,9 @@
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="/stylesheets/main.css">
+  <link rel="stylesheet" href="/stylesheets/comments.css">
+  <link rel="stylesheet" href="/stylesheets/subs.css">
+  <link rel="stylesheet" href="/stylesheets/articles.css">
   <title>Reddit Clone</title>
 </head>
 <body>
@@ -26,7 +29,35 @@
 	      <li class="nav-item">
 	        <a class="nav-link" href="/subs/new">Create Your Own Subreddit</a>
 	      </li>
+        <% if(!currentUser){ %>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+           <a class="nav-link" href="/signup">Signup</a>
+         </li>
+        <% }else{ %>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><%= currentUser.username %></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/logout">Logout</a>
+          </li>
+        <% } %>
+
 	    </ul>
 	  </div>
 	</nav>
 <div class="container">
+  <div class="container">
+    <% if(error && error.length > 0){ %>
+      <div class="alert alert-danger" role="alert">
+        <%= error %>
+      </div>
+    <% } %>
+    <% if(success && success.length > 0){ %>
+      <div class="alert alert-success" role="alert">
+        <%= success %>
+      </div>
+    <% } %>
+  </div>

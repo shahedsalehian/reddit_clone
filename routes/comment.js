@@ -20,6 +20,8 @@ router.post("/",function(req,res){
           console.log(err);
         }else{
           comment.time = moment().format("dddd, MMMM Do YYYY");
+          comment.author.id = req.user._id;
+          comment.author.username = req.user.username;
           comment.save();
           article.comments.push(comment);
           article.save();

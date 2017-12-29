@@ -1,9 +1,11 @@
 <% include ../partials/header %>
 <h1><%= article.title %></h1><%= article.time %>
+<p>by <%= article.author.username %></p>
 <p><%= article.text %></p>
 <h2>Comments:</h2>
 <% article.comments.forEach(function(comment){ %>
   <p><%= comment.text %></p>
+  <p>by <%= comment.author.username %></p>
 <% }) %>
 
 <form action="/subs/<%= sub %>/articles/<%= article._id %>/comments/" method="post">
