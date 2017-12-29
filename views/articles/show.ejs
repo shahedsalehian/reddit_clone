@@ -8,6 +8,7 @@
   <p>by <%= comment.author.username %></p>
 <% }) %>
 
+<% if(currentUser){ %>
 <form action="/subs/<%= sub %>/articles/<%= article._id %>/comments/" method="post">
   <div class="form-group">
     <input class="form-control" type="text" name="comment[text]" placeholder="Enter Your Comment Here">
@@ -16,5 +17,6 @@
     <input class="btn btn-primary" type="submit" name="submit" value="Submit">
   </div>
 </form>
+<% } %>
 <a href="/subs/<%= sub %>">GO BACK</a>
 <% include ../partials/footer %>

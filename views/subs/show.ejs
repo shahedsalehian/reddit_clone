@@ -1,6 +1,8 @@
 <%- include ../partials/header %>
 <h1><%= sub.name %></h1>
+<% if(currentUser){ %>
 <a href="/subs/<%= sub._id %>/articles/new">New article</a>
+<% } %>
 <ul>
   <% sub.articles.forEach(function(article){ %>
     <li><a href="/subs/<%= sub._id %>/articles/<%= article._id %>"><%= article.title %></a></li>

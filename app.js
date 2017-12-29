@@ -8,7 +8,6 @@ const flash           = require("connect-flash");
 const LocalStrategy   = require("passport-local");
 const app 				    = express();
 
-
 //models
 const User 				  = require("./models/user");
 const Article 			= require("./models/article");

@@ -3,6 +3,7 @@ const router  = express.Router();
 // const User    = require("../models/user");
 const Sub     = require("../models/sub");
 const moment = require('moment');
+const middleware = require("../middleware");
 
 
 //INDEX
@@ -17,7 +18,7 @@ router.get("/", function(req,res){
 });
 
 //NEW
-router.get("/new", function(req,res){
+router.get("/new", middleware.isLoggedIn, function(req,res){
 	res.render("subs/new");
 });
 
@@ -33,7 +34,7 @@ router.get("/:id", function(req,res){
 });
 
 //CREATE
-router.post("/", function(req,res){
+router.post("/",middleware.isLoggedIn, function(req,res){
 	var name = req.body.name;
 	var newSub = {name: name};
 	Sub.create(newSub, function(err, newlyCreatedSub){
@@ -47,8 +48,8 @@ router.post("/", function(req,res){
 });
 
 //EDIT
-router.get("/:id", function(req,res){
-	res.render("show");
+router.get("/:id", middleware.isLoggedIn, function(req,res){
+	res.render("edit");
 });
 
 //UPDATE

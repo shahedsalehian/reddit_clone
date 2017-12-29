@@ -5,10 +5,11 @@ const router = express.Router({
 const Sub = require('../models/sub');
 const Article = require('../models/article');
 const moment = require('moment');
+const middleware = require("../middleware");
 
 
 //NEW ARTICLE
-router.get("/new", function(req,res){
+router.get("/new",middleware.isLoggedIn, function(req,res){
   Sub.findById(req.params.id, function(err, sub){
     if(err){
       console.log(err);
@@ -19,7 +20,7 @@ router.get("/new", function(req,res){
 });
 
 //CREATE NEW ARTICLE
-router.post("/", function(req,res){
+router.post("/",middleware.isLoggedIn, function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
       console.log(err);

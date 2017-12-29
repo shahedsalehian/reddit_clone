@@ -2,14 +2,14 @@ const express = require('express');
 const router = express.Router({
   mergeParams: true // merge params from all the defined models
 });
-const Sub = require('../models/sub');
+// const Sub = require('../models/sub');
 const Article = require('../models/article');
 const Comment = require('../models/comment');
-const moment = require('moment');
-
+const moment = require('moment'); // to display time
+const middleware = require("../middleware");
 
 //CREATE NEW COMMENT
-router.post("/",function(req,res){
+router.post("/",middleware.isLoggedIn,function(req,res){
   Article.findById(req.params.article_id, function(err,article){
     if(err){
       console.log(err);
