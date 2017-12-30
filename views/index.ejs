@@ -1,6 +1,6 @@
 <% include partials/header %>
 <div class="row">
-	<div class="col-sm-2 sub-section">
+	<div class="col-sm-3 sub-section">
 		<ul>
 			<% subs.forEach(function(sub){ %>
 				<li><a href="/subs/<%= sub._id %>"><%= sub.name %></a></li>
@@ -11,6 +11,9 @@
 		<% if(currentUser){ %>
 		<h1>Welcome <%= currentUser.username %></h1>
 		<% } %>
+		<% articles.forEach(function(article){ %>
+			<li><a href="/subs/<%= article.sub %>/articles/<%= article._id %>"><%= article.title %></a></li>
+		<% }) %>
 	</div>
 </div>
 

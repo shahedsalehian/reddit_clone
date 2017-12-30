@@ -18,5 +18,8 @@ h1, h2, h3{
 }
 
 .sub-section{
-    border-right: 1px solid black;
+    padding: 0;
+    border-right: 3px solid rgb(56, 56, 56, 0.8);
+    min-height: 100vh;
+    height: 100vh;
 }

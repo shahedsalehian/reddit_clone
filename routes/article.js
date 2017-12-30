@@ -32,6 +32,8 @@ router.post("/",middleware.isLoggedIn, function(req,res){
         }else{
             article.author.id = req.user._id;
             article.author.username = req.user.username;
+            article.sub.id = sub.id;
+            article.sub.name = sub.name;
             article.time = moment().format("dddd, MMMM Do YYYY");
             article.save()
             sub.articles.push(article);

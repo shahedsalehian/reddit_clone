@@ -6,12 +6,19 @@ const ArticleSchema = new mongoose.Schema({
     time: String,
     author: {
      	id: {
-         type: mongoose.Schema.Types.ObjectId, ref: "User"
+         type: mongoose.Schema.Types.ObjectId,
+         ref: "User"
        },
     	username: String
     },
-   comments: [ {type: mongoose.Schema.Types.ObjectId, ref: "Comment"} ],
-
+    comments: [ {type: mongoose.Schema.Types.ObjectId, ref: "Comment"} ],
+    sub: {
+      id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Sub"
+        },
+      name: String
+    }
 },{
   usePushEach: true
 });

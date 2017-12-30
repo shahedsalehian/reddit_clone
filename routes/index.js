@@ -1,8 +1,9 @@
-const express = require("express");
-const router  = express.Router();
-const passport = require("passport");
-const User    = require("../models/user");
-const Sub = require('../models/sub');
+const express   = require("express");
+const router    = express.Router();
+const passport  = require("passport");
+const User      = require("../models/user");
+const Sub       = require('../models/sub');
+const Article   = require("../models/article");
 
 
 //Index Page for All subreddits
@@ -11,7 +12,14 @@ router.get("/", function(req,res){
     if(err){
       console.log(err);
     }else{
-      res.render("index", {subs: subs});
+      Article.find({}, function(err,articles){
+        if(err){
+          console.log(err);
+        }else{
+          res.render("index", {subs: subs, articles: articles});
+        }
+      })
+      
     }
   })
 });
