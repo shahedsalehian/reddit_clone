@@ -1,8 +1,17 @@
 <% include partials/header %>
-<ul>
-	<% subs.forEach(function(sub){ %>
-		<li><a href="/subs/<%= sub._id %>"><%= sub.name %></a></li>
-	<% }) %>
-</ul>
+<div class="row">
+	<div class="col-sm-2 sub-section">
+		<ul>
+			<% subs.forEach(function(sub){ %>
+				<li><a href="/subs/<%= sub._id %>"><%= sub.name %></a></li>
+			<% }) %>
+		</ul>
+	</div>
+	<div class="col-sm-9">
+		<% if(currentUser){ %>
+		<h1>Welcome <%= currentUser.username %></h1>
+		<% } %>
+	</div>
+</div>
 
 <% include partials/footer  %>

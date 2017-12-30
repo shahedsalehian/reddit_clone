@@ -42,7 +42,7 @@ router.post("/",middleware.isLoggedIn, function(req,res){
 			console.log(err);
 		}else{
 			console.log(newlyCreatedSub);
-			res.redirect("/subs");
+			res.redirect("/");
 		}
 	});
 });

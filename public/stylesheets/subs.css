@@ -1,3 +1,11 @@
 li{
   list-style-type: none;
 }
+
+li a{
+  color: white;
+}
+
+li a:hover{
+  color: black;
+}
