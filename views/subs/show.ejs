@@ -1,11 +1,15 @@
 <%- include ../partials/header %>
-<h1><%= sub.name %></h1>
-<% if(currentUser){ %>
-<a class="btn btn-primary" href="/subs/<%= sub._id %>/articles/new">New article</a>
-<% } %>
-<ul>
-  <% sub.articles.forEach(function(article){ %>
-    <li><a href="/subs/<%= sub._id %>/articles/<%= article._id %>"><%= article.title %></a></li>
-  <% }) %>
-</ul>
+<div class="container">
+  <h1><%= sub.name %></h1>
+  <% if(currentUser){ %>
+    <div class="new-article">
+        <a class="btn btn-primary" href="/subs/<%= sub._id %>/articles/new">New article</a>
+    </div>
+  <% } %>
+  <ul>
+    <% sub.articles.forEach(function(article){ %>
+      <li><a href="/subs/<%= sub._id %>/articles/<%= article._id %>"><%= article.title %></a></li>
+    <% }) %>
+  </ul>
+</div>
 <%- include ../partials/footer %>
