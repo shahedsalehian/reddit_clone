@@ -1,5 +1,3 @@
-This is a todo file!
-
 TODO:
 
 1. subscribe to subs and have a "front" page
