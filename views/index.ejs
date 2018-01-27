@@ -9,7 +9,7 @@
 	</div>
 	<div class="main-section col-lg-10 col-md-9 col-sm-8">
 		<% articles.forEach(function(article, i){ %>
-			<li><%= i %>  - <a href="/subs/<%= article.sub %>/articles/<%= article._id %>"><%= article.title %></a></li>
+			<li><%= i %>  - <a href="/subs/<%= article.sub.id %>/articles/<%= article._id %>"><%= article.title %></a></li>
 		<% }) %>
 	</div>
 </div>
