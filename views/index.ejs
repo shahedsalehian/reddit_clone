@@ -1,13 +1,13 @@
 <% include partials/header %>
-<div class="row">
-	<div class="sub-section col-lg-2 col-md-3 col-sm-4">
+<div>
+	<div>
 		<ul>
 			<% subs.forEach(function(sub){ %>
 				<li><a href="/subs/<%= sub._id %>"><%= sub.name %></a></li>
 			<% }) %>
 		</ul>
 	</div>
-	<div class="main-section col-lg-10 col-md-9 col-sm-8">
+	<div>
 		<% articles.forEach(function(article, i){ %>
 			<li><%= i %>  - <a href="/subs/<%= article.sub.id %>/articles/<%= article._id %>"><%= article.title %></a></li>
 		<% }) %>

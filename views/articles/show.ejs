@@ -1,6 +1,6 @@
 <% include ../partials/header %>
-<div class="container">
-  <div class="article">
+<div>
+  <div>
     <h3><%= article.title %></h3>
     <p class="username">by <%= article.author.username %> at <%= article.time %></p>
     <p><%= article.text %></p>
@@ -16,11 +16,11 @@
 
     <% if(currentUser){ %>
     <form action="/subs/<%= sub %>/articles/<%= article._id %>/comments/" method="post">
-      <div class="form-group">
-        <input class="form-control" type="text" name="comment[text]" placeholder="Enter Your Comment Here">
+      <div>
+        <input type="text" name="comment[text]" placeholder="Enter Your Comment Here">
       </div>
-      <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="submit" value="Submit">
+      <div>
+        <input type="submit" name="submit" value="Submit">
       </div>
     </form>
     <% } %>
