@@ -1,4 +1,10 @@
 <% include partials/header %>
+<p>my subs</p>
+<% if(currentUser){ %>
+	<% currentUser.subs.forEach(function(sub){ %>
+		<li>-<%= sub %></li>
+	<% }); %>
+<% } %>
 <div>
 	<div>
 		<ul>

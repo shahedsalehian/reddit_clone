@@ -5,6 +5,11 @@
     <div class="new-article">
         <a class="btn btn-primary" href="/subs/<%= sub._id %>/articles/new">New article</a>
     </div>
+    <div>
+        <form action="/subs/<%= sub._id %>/subscribe" method="POST">
+          <input type="submit" name="subscribe" value="Subscribe">
+        </form>
+    </div>
   <% } %>
   <ul>
     <% sub.articles.forEach(function(article){ %>

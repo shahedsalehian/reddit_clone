@@ -1,6 +1,6 @@
 const express = require("express");
 const router  = express.Router();
-// const User    = require("../models/user");
+const User    = require("../models/user");
 const Sub     = require("../models/sub");
 const moment = require('moment');
 const middleware = require("../middleware");
@@ -29,6 +29,25 @@ router.get("/:id", function(req,res){
 			console.log(err);
 		}else{
 			res.render("subs/show",{sub: foundSub});
+		}
+	});
+});
+
+//SUBSCRIBE
+router.post("/:id/subscribe", middleware.isLoggedIn, function(req,res){
+	Sub.findById(req.params.id, function(err, sub){
+		if(err){
+			console.log(err);
+		}else{
+			User.findById(req.user._id, function(err,user){
+				if(err){
+					console.log(err);
+				}else{
+					user.subs.push(sub);
+					user.save();
+					res.redirect("/subs/"+ sub._id);
+				}
+			});
 		}
 	});
 });
