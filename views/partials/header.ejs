@@ -10,28 +10,52 @@
   <link rel="stylesheet" href="/stylesheets/comments.css">
   <link rel="stylesheet" href="/stylesheets/subs.css">
   <link rel="stylesheet" href="/stylesheets/articles.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+  integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  crossorigin="anonymous">
+
   <title>Reddit Clone</title>
+
 </head>
 <body>
-      <ul>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="/">Reddit__Clone</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mr-auto">
+        <li>
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li>
+          <a class="nav-link" href="subs/new">New Sub</a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
         <% if(!currentUser){ %>
           <li>
-            <a href="/login">Login</a>
+            <a class="nav-link" href="/login">Login</a>
           </li>
           <li>
-           <a href="/signup">Signup</a>
+           <a class="nav-link" href="/signup">Signup</a>
          </li>
         <% }else{ %>
           <li>
-            <a href="#"><%= currentUser.username %></a>
+            <a class="nav-link" href="#"><%= currentUser.username %></a>
           </li>
           <li>
-            <a href="/logout">Logout</a>
+            <a class="nav-link" href="/logout">Logout</a>
           </li>
         <% } %>
-	    </ul>
-	  </div>
-	</nav>
+      </ul>
+    </div>
+  </nav>
+
   <div>
     <% if(error && error.length > 0){ %>
       <div role="alert">
@@ -44,3 +68,5 @@
       </div>
     <% } %>
   </div>
+
+  <div class="container">

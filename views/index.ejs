@@ -1,17 +1,12 @@
 <% include partials/header %>
+
+<h3>Subs</h3>
 <div>
-	<div>
-		<ul>
+		<ul class="list-group">
 			<% subs.forEach(function(sub){ %>
-				<li><a href="/subs/<%= sub._id %>"><%= sub.name %></a></li>
+				<li class="list-group-item"><a href="/subs/<%= sub._id %>"><%= sub.name %></a></li>
 			<% }) %>
 		</ul>
-	</div>
-	<div>
-		<% articles.forEach(function(article, i){ %>
-			<li><%= i %>  - <a href="/subs/<%= article.sub.id %>/articles/<%= article._id %>"><%= article.title %></a></li>
-		<% }) %>
-	</div>
 </div>
 
 <% include partials/footer  %>
