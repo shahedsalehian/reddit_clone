@@ -57,4 +57,30 @@ router.get("/:article_id", function(req,res){
 });
 
 
+//DELETE Article
+router.delete("/:article_id", middleware.isLoggedIn, function(req,res){
+  Sub.findById(req.params.id, function(err,sub){
+    if(err){
+      console.log(err);
+      res.redirect("/subs");
+    }else{
+      Article.findByIdAndRemove(req.params.article_id, function(err,article){
+        if(err){
+          console.log(err);
+          res.redirect("/subs/"+ sub._id);
+        }else{
+          res.redirect("/subs/" + sub._id);
+        }
+      });
+    }
+  });
+});
+
+// EDIT ARTICLE
+router.get("/:article_id/edit", middleware.isLoggedIn, function(req,res){
+  Article.findById(req.params.article_id, function(err, article){
+    res.render("articles/edit", {article: article});
+  });
+});
+
 module.exports = router;

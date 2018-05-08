@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="/stylesheets/comments.css">
   <link rel="stylesheet" href="/stylesheets/subs.css">
   <link rel="stylesheet" href="/stylesheets/articles.css">
+  <!-- Include stylesheet -->
+  <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
 
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
   integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
@@ -21,7 +23,7 @@
 <body>
 
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/">Reddit__Clone</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -32,7 +34,7 @@
           <a class="nav-link" href="/">Home</a>
         </li>
         <li>
-          <a class="nav-link" href="subs/new">New Sub</a>
+          <a class="nav-link" href="/subs/new">New Sub</a>
         </li>
       </ul>
 
@@ -58,12 +60,12 @@
 
   <div>
     <% if(error && error.length > 0){ %>
-      <div role="alert">
+      <div role="alert" class="alert alert-danger">
         <%= error %>
       </div>
     <% } %>
     <% if(success && success.length > 0){ %>
-      <div role="alert">
+      <div role="alert" class="alert alert-success">
         <%= success %>
       </div>
     <% } %>
