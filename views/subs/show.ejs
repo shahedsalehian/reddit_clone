@@ -1,26 +1,31 @@
 <%- include ../partials/header %>
 
   <div class="container">
-    <h1><%= sub.name %></h1>
-    <% if(currentUser){ %>
-      <div class="new-article">
-          <a class="btn btn-primary" href="/subs/<%= sub._id %>/articles/new">New article</a>
-      </div>
-    <% } %>
+    <div>
+      <h1 style="display: inline;"><%= sub.name %></h1>
+          <% if(currentUser){ %>
+            <div>
+                <a class="text-info" href="/subs/<%= sub._id %>/articles/new">New article</a>
+            </div>
+          <% } %>
+    </div>
+
     <ul class="list-group">
       <% sub.articles.forEach(function(article){ %>
-        <li class="list-group-item"><a href="/subs/<%= sub._id %>/articles/<%= article._id %>"><%= article.title %></a>
-          <div class="float-right">
+        <li class="list-group-item bg-dark"><a class="text-white" href="/subs/<%= sub._id %>/articles/<%= article._id %>"><%= article.title %></a>
+          <div class="float-right btn-space">
             <form action="/subs/<%= sub._id %>/articles/<%= article._id %>?_method=DELETE" method="POST">
-              <button class="btn btn-sm btn-danger">Delete</button>
+              <button class="astext text-muted">Delete</button>
             </form>
           </div>
-          <div class="float-right">
-            <a href="/subs/<%= sub._id %>/articles/<%=article._id%>/edit"><button class="btn btn-sm btn-primary">Edit</button></a>
+          <div class="float-right btn-space">
+            <a href="/subs/<%= sub._id %>/articles/<%=article._id%>/edit"><button class="astext text-muted">Edit</button></a>
           </div>
         </li>
       <% }) %>
     </ul>
+
   </div>
+
 
 <%- include ../partials/footer %>

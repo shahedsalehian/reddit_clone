@@ -79,8 +79,9 @@ router.delete("/:article_id", middleware.isLoggedIn, function(req,res){
 // EDIT ARTICLE
 router.get("/:article_id/edit", middleware.isLoggedIn, function(req,res){
   Article.findById(req.params.article_id, function(err, article){
-    res.render("articles/edit", {article: article});
+    res.render("articles/edit", {article: article, sub: req.params.id});
   });
 });
+
 
 module.exports = router;

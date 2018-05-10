@@ -4,7 +4,7 @@
     <form action="/subs/<%= sub._id %>/articles" method="post">
       <div class="form-group article-input">
         <label>Title</label>
-        <input class="form-control" type="text" name="article[title]" >
+        <input class="form-control" type="text" name="article[title]" required>
       </div>
       <div class="form-group article-input">
         <label for="article[text]">Text</label>
