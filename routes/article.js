@@ -78,10 +78,39 @@ router.delete("/:article_id", middleware.isLoggedIn, function(req,res){
 
 // EDIT ARTICLE
 router.get("/:article_id/edit", middleware.isLoggedIn, function(req,res){
-  Article.findById(req.params.article_id, function(err, article){
-    res.render("articles/edit", {article: article, sub: req.params.id});
+  Sub.findById(req.params.id, function(err,sub){
+    if(err){
+      console.log(err);
+      res.redirect("/subs");
+    }else{
+      Article.findById(req.params.article_id, function(err, article){
+        if(err){
+          console.log(err);
+          res.redirect("/subs");
+        }else{
+          res.render("articles/edit", {article: article, sub: sub});
+        }
+      });
+    }
   });
 });
 
+router.put("/:article_id", middleware.isLoggedIn, function(req,res){
+  Sub.findById(req.params.id, function(err,sub){
+    if(err){
+      console.log(err);
+      res.redirect("/subs");
+    }else{
+      Article.findByIdAndUpdate(req.params.article_id, req.body.article, function(err,article){
+        if(err){
+          console.log(err);
+          res.redirect("/subs");
+        }else{
+          res.redirect("/subs/" + sub.id +"/articles/" + req.params.article_id);
+        }
+      });
+    }
+  });
+});
 
 module.exports = router;
