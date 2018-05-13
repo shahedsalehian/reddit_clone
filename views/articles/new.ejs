@@ -1,37 +1,18 @@
 <% include ../partials/header %>
 <div class="container">
     <h1>New Post for /<%= sub.name %></h1>
-    <form action="/subs/<%= sub._id %>/articles" method="post">
+    <form action="/s/<%= sub._id %>/articles" method="post">
       <div class="form-group article-input">
         <label>Title</label>
         <input class="form-control" type="text" name="article[title]" required>
       </div>
       <div class="form-group article-input">
         <label for="article[text]">Text</label>
-        <input type="hidden" name="article[text]">
-        <div id="editor">
-        </div>
+        <input type="textarea" name="article[text]">
       </div>
       <div class="form-group article-input">
         <input class="btn btn-primary" type="submit" name="Submit" value="Submit">
       </div>
     </form>
 </div>
-
-<!-- Include the Quill library -->
-<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
-<!-- Initialize Quill editor -->
-<script>
-  let quill = new Quill('#editor', {
-    theme: 'snow'
-  });
-
-  let form = document.querySelector('form');
-    form.onsubmit = function() {
-    // Populate hidden form on submit
-    let about = document.querySelector('input[name="article[text]"]');
-    about.value = JSON.stringify(quill.getContents());
-  };
-
-</script>
 <% include ../partials/footer %>

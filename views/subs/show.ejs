@@ -5,21 +5,21 @@
       <h1 style="display: inline;"><%= sub.name %></h1>
           <% if(currentUser){ %>
             <div>
-                <a class="text-info" href="/subs/<%= sub._id %>/articles/new">New article</a>
+                <a class="text-info" href="/s/<%= sub._id %>/articles/new">New article</a>
             </div>
           <% } %>
     </div>
 
     <ul class="list-group">
       <% sub.articles.forEach(function(article){ %>
-        <li class="list-group-item bg-dark"><a class="text-white" href="/subs/<%= sub._id %>/articles/<%= article._id %>"><%= article.title %></a>
+        <li class="list-group-item bg-dark"><a class="text-white" href="/s/<%= sub._id %>/articles/<%= article._id %>"><%= article.title %></a>
           <div class="float-right btn-space">
-            <form action="/subs/<%= sub._id %>/articles/<%= article._id %>?_method=DELETE" method="POST">
+            <form action="/s/<%= sub._id %>/articles/<%= article._id %>?_method=DELETE" method="POST">
               <button class="astext text-muted">Delete</button>
             </form>
           </div>
           <div class="float-right btn-space">
-            <a href="/subs/<%= sub._id %>/articles/<%=article._id%>/edit"><button class="astext text-muted">Edit</button></a>
+            <a href="/s/<%= sub._id %>/articles/<%=article._id%>/edit"><button class="astext text-muted">Edit</button></a>
           </div>
         </li>
       <% }) %>

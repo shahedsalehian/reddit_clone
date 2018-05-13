@@ -20,7 +20,7 @@
 
     <!-- Comment Form -->
     <% if(currentUser){ %>
-    <form action="/subs/<%= sub %>/articles/<%= article._id %>/comments/" method="post">
+    <form action="/s/<%= sub %>/articles/<%= article._id %>/comments/" method="post">
       <div class="form-row">
         <div class="form-group col-md-6">
           <input class="form-control" type="text" name="comment[text]" placeholder="Enter Your Comment Here">

@@ -27,6 +27,7 @@ app.use(methodOverride("_method")); // methodOverride for update/delete posts
 
 // define where static files should be served from
 app.use(express.static(__dirname + "/public"));
+// use flash messages
 app.use(flash());
 
 //MongoDB Config
@@ -45,6 +46,7 @@ app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
+
 //used to access currentUser from all templates/views
 app.use(function(req,res,next){
   res.locals.currentUser = req.user;
@@ -55,9 +57,9 @@ app.use(function(req,res,next){
 
 //Routes use
 app.use("/", indexRoutes);
-app.use("/subs", subRoutes);
-app.use("/subs/:id/articles", articleRoutes);
-app.use("/subs/:id/articles/:article_id/comments", commentRoutes);
+app.use("/s", subRoutes);
+app.use("/s/:id/articles", articleRoutes);
+app.use("/s/:id/articles/:article_id/comments", commentRoutes);
 
 // Server startup
 const port = (process.env.PORT || 3000);
