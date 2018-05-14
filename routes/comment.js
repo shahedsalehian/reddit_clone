@@ -13,7 +13,7 @@ router.post("/",middleware.isLoggedIn,function(req,res){
   Article.findById(req.params.article_id, function(err,article){
     if(err){
       console.log(err);
-      res.redirect("/subs/"+ req.params.id +"/articles/"+req.params.article_id);
+      res.redirect("/s/"+ req.params.id +"/articles/"+req.params.article_id);
     }else{
       Comment.create(req.body.comment, function(err,comment){
         if(err){
@@ -25,7 +25,7 @@ router.post("/",middleware.isLoggedIn,function(req,res){
           comment.save();
           article.comments.push(comment);
           article.save();
-          res.redirect("/subs/" + req.params.id + "/articles/" + article._id);
+          res.redirect("/s/" + req.params.id + "/articles/" + article._id);
         }
       });
     }

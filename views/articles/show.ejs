@@ -3,7 +3,8 @@
   <!-- Article -->
   <div class="jumbotron text-dark" style="margin-top: 10px;">
     <h3><%= article.title %></h3>
-    <%= article.text %>
+    "<%= article.text %>"
+    <p>by <%= article.author.username %></p>
   </div>
 
   <!-- Comments-Section -->
@@ -16,6 +17,7 @@
             by <%= comment.author.username %>
           </div>
         </div>
+        <br>
       <% }) %>
 
     <!-- Comment Form -->

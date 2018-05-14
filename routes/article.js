@@ -24,7 +24,7 @@ router.post("/",middleware.isLoggedIn, function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
       console.log(err);
-      res.redirect("/subs");
+      res.redirect("/s");
     }else{
       Article.create(req.body.article, function(err,article){
         if(err){
@@ -38,7 +38,7 @@ router.post("/",middleware.isLoggedIn, function(req,res){
             article.save()
             sub.articles.push(article);
             sub.save();
-            res.redirect("/subs/" + sub._id);
+            res.redirect("/s/" + sub._id);
         }
       });
     }
@@ -62,14 +62,14 @@ router.delete("/:article_id", middleware.isLoggedIn, function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
       console.log(err);
-      res.redirect("/subs");
+      res.redirect("/s");
     }else{
       Article.findByIdAndRemove(req.params.article_id, function(err,article){
         if(err){
           console.log(err);
-          res.redirect("/subs/"+ sub._id);
+          res.redirect("/s/"+ sub._id);
         }else{
-          res.redirect("/subs/" + sub._id);
+          res.redirect("/s/" + sub._id);
         }
       });
     }
@@ -81,12 +81,12 @@ router.get("/:article_id/edit", middleware.isLoggedIn, function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
       console.log(err);
-      res.redirect("/subs");
+      res.redirect("/s");
     }else{
       Article.findById(req.params.article_id, function(err, article){
         if(err){
           console.log(err);
-          res.redirect("/subs");
+          res.redirect("/s");
         }else{
           res.render("articles/edit", {article: article, sub: sub});
         }
@@ -99,14 +99,14 @@ router.put("/:article_id", middleware.isLoggedIn, function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
       console.log(err);
-      res.redirect("/subs");
+      res.redirect("/s");
     }else{
       Article.findByIdAndUpdate(req.params.article_id, req.body.article, function(err,article){
         if(err){
           console.log(err);
-          res.redirect("/subs");
+          res.redirect("/s");
         }else{
-          res.redirect("/subs/" + sub.id +"/articles/" + req.params.article_id);
+          res.redirect("/s/" + sub.id +"/articles/" + req.params.article_id);
         }
       });
     }
