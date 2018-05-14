@@ -1,0 +1,17 @@
+<% include ../partials/header %>
+<h1>EDIT <%= post.title %> </h1>
+  <form action="/s/<%= sub._id %>/posts/<%= post._id %>?_method=PUT" method="POST">
+    <div class="form-group">
+      <label for="post[title]">Title</label>
+      <input class="form-control" type="text" name="post[title]" value="<%= post.title %>">
+    </div>
+    <div class="form-group">
+      <label for="post[text]">Text</label>
+      <input class="form-control" type="textarea" name="post[text]" value="<%= post.text %>">
+    </div>
+    <div class="form-group post-input">
+      <input class="btn btn-primary" type="submit" name="Submit" value="Update">
+    </div>
+  </form>
+
+<% include ../partials/footer %>

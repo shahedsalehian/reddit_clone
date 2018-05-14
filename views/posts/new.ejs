@@ -1,0 +1,18 @@
+<% include ../partials/header %>
+<div class="container">
+    <h1>New Post for /<%= sub.name %></h1>
+    <form action="/s/<%= sub._id %>/posts" method="post">
+      <div class="form-group post-input">
+        <label>Title</label>
+        <input class="form-control" type="text" name="post[title]" required />
+      </div>
+      <div class="form-group post-input">
+        <label for="post[text]">Text</label>
+        <input class="form-control" type="text" name="post[text]" required />
+      </div>
+      <div class="form-group post-input">
+        <input class="btn btn-primary" type="submit" name="Submit" value="Submit">
+      </div>
+    </form>
+</div>
+<% include ../partials/footer %>

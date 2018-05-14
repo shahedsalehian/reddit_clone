@@ -1,17 +1,17 @@
 <% include ../partials/header %>
 <div>
-  <!-- Article -->
+  <!-- Post -->
   <div class="jumbotron text-dark" style="margin-top: 10px;">
-    <h3><%= article.title %></h3>
-    "<%= article.text %>"
-    <p>by <%= article.author.username %></p>
+    <h3><%= post.title %></h3>
+    "<%= post.text %>"
+    <p>by <%= post.author.username %></p>
   </div>
 
   <!-- Comments-Section -->
   <div class="comment-section">
     <!-- Comments list -->
     <h2>Comments:</h2>
-      <% article.comments.forEach(function(comment){ %>
+      <% post.comments.forEach(function(comment){ %>
         <div class="card text-dark">
           <div class="card-body"><%= comment.text %><br>
             by <%= comment.author.username %>
@@ -22,7 +22,7 @@
 
     <!-- Comment Form -->
     <% if(currentUser){ %>
-    <form action="/s/<%= sub %>/articles/<%= article._id %>/comments/" method="post">
+    <form action="/s/<%= sub %>/posts/<%= post._id %>/comments/" method="post">
       <div class="form-row">
         <div class="form-group col-md-6">
           <input class="form-control" type="text" name="comment[text]" placeholder="Enter Your Comment Here">

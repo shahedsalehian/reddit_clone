@@ -9,7 +9,8 @@ const CommentSchema = new mongoose.Schema({
 		},
 		username: String
 	},
-	time: String
+	updatedAt: Date,
+  createdAt: Date,
 },{
 	usePushEach: true
 });

@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 
 const SubSchema	= new mongoose.Schema({
 	name: String,
-	articles: [
+	posts: [
 		{
 			type: mongoose.Schema.Types.ObjectId,
-			ref: "Article"
+			ref: "Post"
 		}
 	]
 },{

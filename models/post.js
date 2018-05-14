@@ -1,9 +1,10 @@
 const mongoose = require("mongoose");
 
-const ArticleSchema = new mongoose.Schema({
+const PostSchema = new mongoose.Schema({
     title: String,
     text: String,
-    time: String,
+    createdAt: Date,
+    updatedAt: Date,
     author: {
      	id: {
          type: mongoose.Schema.Types.ObjectId,
@@ -23,4 +24,4 @@ const ArticleSchema = new mongoose.Schema({
   usePushEach: true
 });
 
-module.exports = mongoose.model("Article", ArticleSchema);
+module.exports = mongoose.model("Post", PostSchema);

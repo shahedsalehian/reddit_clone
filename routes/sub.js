@@ -24,7 +24,7 @@ router.get("/new", middleware.isLoggedIn, function(req,res){
 
 //SHOW
 router.get("/:id", function(req,res){
-	Sub.findById(req.params.id).populate("articles").exec(function(err,foundSub){ //the "posts" from the populate function is defined in the sub model
+	Sub.findById(req.params.id).populate("posts").exec(function(err,foundSub){ //the "posts" from the populate function is defined in the sub model
 		if(err){
 			console.log(err);
 		}else{

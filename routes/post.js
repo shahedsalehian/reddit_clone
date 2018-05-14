@@ -3,40 +3,40 @@ const router = express.Router({
   mergeParams: true // merge params from all the defined models
 });
 const Sub = require('../models/sub');
-const Article = require('../models/article');
+const Post = require('../models/post');
 const moment = require('moment');
 const middleware = require("../middleware");
 
 
-//NEW ARTICLE
+//NEW Post
 router.get("/new",middleware.isLoggedIn, function(req,res){
   Sub.findById(req.params.id, function(err, sub){
     if(err){
       console.log(err);
     }else{
-      res.render("articles/new", {sub: sub});
+      res.render("posts/new", {sub: sub});
     }
   });
 });
 
-//CREATE NEW ARTICLE
+//CREATE NEW Post
 router.post("/",middleware.isLoggedIn, function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
       console.log(err);
       res.redirect("/s");
     }else{
-      Article.create(req.body.article, function(err,article){
+      Post.create(req.body.post, function(err,post){
         if(err){
           console.log(err);
         }else{
-            article.author.id = req.user._id;
-            article.author.username = req.user.username;
-            article.sub.id = sub.id;
-            article.sub.name = sub.name;
-            article.time = moment().format("dddd, MMMM Do YYYY");
-            article.save()
-            sub.articles.push(article);
+            post.author.id = req.user._id;
+            post.author.username = req.user.username;
+            post.sub.id = sub.id;
+            post.sub.name = sub.name;
+            post.time = moment().format("dddd, MMMM Do YYYY");
+            post.save()
+            sub.posts.push(post);
             sub.save();
             res.redirect("/s/" + sub._id);
         }
@@ -45,26 +45,26 @@ router.post("/",middleware.isLoggedIn, function(req,res){
   });
 });
 
-//SHOW ARTICLE
-router.get("/:article_id", function(req,res){
-  Article.findById(req.params.article_id).populate("comments").exec(function(err,article){
+//SHOW Post
+router.get("/:post_id", function(req,res){
+  Post.findById(req.params.post_id).populate("comments").exec(function(err,post){
     if(err){
       console.log(err);
     }else{
-      res.render("articles/show", {article: article, sub: req.params.id});
+      res.render("posts/show", {post: post, sub: req.params.id});
     }
   });
 });
 
 
-//DELETE Article
-router.delete("/:article_id", middleware.isLoggedIn, function(req,res){
+//DELETE Post
+router.delete("/:post_id", middleware.isLoggedIn, function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
       console.log(err);
       res.redirect("/s");
     }else{
-      Article.findByIdAndRemove(req.params.article_id, function(err,article){
+      Post.findByIdAndRemove(req.params.post_id, function(err,post){
         if(err){
           console.log(err);
           res.redirect("/s/"+ sub._id);
@@ -76,37 +76,39 @@ router.delete("/:article_id", middleware.isLoggedIn, function(req,res){
   });
 });
 
-// EDIT ARTICLE
-router.get("/:article_id/edit", middleware.isLoggedIn, function(req,res){
+// EDIT Post
+router.get("/:post_id/edit", middleware.isLoggedIn, function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
       console.log(err);
       res.redirect("/s");
     }else{
-      Article.findById(req.params.article_id, function(err, article){
+      Post.findById(req.params.post_id, function(err, post){
         if(err){
           console.log(err);
           res.redirect("/s");
         }else{
-          res.render("articles/edit", {article: article, sub: sub});
+          res.render("posts/edit", {post: post, sub: sub});
         }
       });
     }
   });
 });
 
-router.put("/:article_id", middleware.isLoggedIn, function(req,res){
+
+// UPDATE Post
+router.put("/:post_id", middleware.isLoggedIn, function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
       console.log(err);
       res.redirect("/s");
     }else{
-      Article.findByIdAndUpdate(req.params.article_id, req.body.article, function(err,article){
+      Post.findByIdAndUpdate(req.params.post_id, req.body.post, function(err,post){
         if(err){
           console.log(err);
           res.redirect("/s");
         }else{
-          res.redirect("/s/" + sub.id +"/articles/" + req.params.article_id);
+          res.redirect("/s/" + sub.id +"/posts/" + req.params.post_id);
         }
       });
     }

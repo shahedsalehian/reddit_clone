@@ -10,14 +10,14 @@ const app 				    = express();
 
 //models
 const User 				  = require("./models/user");
-const Article 			= require("./models/article");
+const Post 			    = require("./models/post");
 const Sub 				  = require("./models/sub");
 const Comment 			= require("./models/comment");
 
 //Routes
 const indexRoutes 	= require("./routes/index");
 const subRoutes 		= require("./routes/sub");
-const articleRoutes = require("./routes/article");
+const postRoutes    = require("./routes/post");
 const commentRoutes = require("./routes/comment");
 
 //app Config
@@ -58,8 +58,8 @@ app.use(function(req,res,next){
 //Routes use
 app.use("/", indexRoutes);
 app.use("/s", subRoutes);
-app.use("/s/:id/articles", articleRoutes);
-app.use("/s/:id/articles/:article_id/comments", commentRoutes);
+app.use("/s/:id/posts", postRoutes);
+app.use("/s/:id/posts/:post_id/comments", commentRoutes);
 
 // Server startup
 const port = (process.env.PORT || 3000);
