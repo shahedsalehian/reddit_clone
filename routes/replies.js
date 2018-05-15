@@ -39,7 +39,6 @@ router.post("/", function(req,res){
     }else{
       let comment = post.comments.id(req.params.comment_id);
       let reply = req.body.comment;
-      reply.
       comment.comments.push(req.body.comment);
       post.save();
       res.redirect(`/s/${req.params.id}/posts/${req.params.post_id}`);
