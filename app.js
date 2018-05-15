@@ -19,6 +19,7 @@ const indexRoutes 	= require("./routes/index");
 const subRoutes 		= require("./routes/sub");
 const postRoutes    = require("./routes/post");
 const commentRoutes = require("./routes/comment");
+const repliesRoutes = require("./routes/replies");
 
 //app Config
 app.set("view engine", "ejs");
@@ -60,6 +61,7 @@ app.use("/", indexRoutes);
 app.use("/s", subRoutes);
 app.use("/s/:id/posts", postRoutes);
 app.use("/s/:id/posts/:post_id/comments", commentRoutes);
+app.use("/s/:id/posts/:post_id/comments/:comment_id/replies", repliesRoutes);
 
 // Server startup
 const port = (process.env.PORT || 3000);

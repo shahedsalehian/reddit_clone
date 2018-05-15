@@ -1,0 +1,6 @@
+<div class="col-xs-12 comment-indent">
+  <p><%= comment.text %></p>
+  <% comment.comments.forEach(function(reply){ %>
+    <%= reply.text %>
+  <% }); %>
+</div>

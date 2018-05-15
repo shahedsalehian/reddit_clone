@@ -1,0 +1,16 @@
+<% include ../partials/header %>
+  <h1>Reply to <%= comment.author.username %></h1>
+  <form action="/s/<%= sub._id %>/posts/<%= post._id %>/comments/<%= comment._id %>/replies" method="post">
+    <label for="comment">COMMENT</label>
+    <p><%= comment.text %></p>
+
+    <div class="form-group">
+      <label for="Reply">Reply</label>
+      <input type="text" name="comment[text]" class="form-control">
+    </div>
+    <div class="form-group">
+      <input class="btn btn-primary" type="submit" name="submit" value="submit">
+    </div>
+  </form>
+
+<% include ../partials/footer %>

@@ -11,6 +11,7 @@ const CommentSchema = new mongoose.Schema({
 	},
 	updatedAt: Date,
   createdAt: Date,
+  comments: [ this ]
 },{
 	usePushEach: true
 });

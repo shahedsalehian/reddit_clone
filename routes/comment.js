@@ -15,6 +15,7 @@ router.post("/",middleware.isLoggedIn,function(req,res){
       console.log(err);
       res.redirect("/s/"+ req.params.id +"/posts/"+req.params.post_id);
     }else{
+      console.log(req.body)
       Comment.create(req.body.comment, function(err,comment){
         if(err){
           console.log(err);
