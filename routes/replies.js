@@ -39,45 +39,11 @@ router.post("/", function(req,res){
     }else{
       let comment = post.comments.id(req.params.comment_id);
       let reply = req.body.comment;
-      comment.comments.push(req.body.comment);
+      comment.comments.push(reply);
       post.save();
       res.redirect(`/s/${req.params.id}/posts/${req.params.post_id}`);
     }
   });
 });
 
-// // CREATE
-// router.post("/", function(req,res){
-//   Post.findById(req.params.post_id, function(err,post){
-//     if(err){
-//       console.log(err);
-//     }else{
-//       Comment.findById(req.params.comment_id, function(err,comment){
-//         if(err){
-//           console.log(err);
-//         }else{
-//           console.log(req.body)
-//           Comment.create(req.body.comment, function(err,reply){
-//             if(err){
-//               console.log(err);
-//             }else{
-//                 console.log(`before_COMMENT: ${comment}`);
-//                 console.log(`before_REPLY: ${reply}`);
-//                 console.log(`before_POST: ${post}`);
-//               reply.author.id = req.user._id;
-//               reply.author.username = req.user.username;
-//               reply.save();
-//               comment.comments.push(reply);
-//               comment.save();
-//                 console.log(`after_COMMENT: ${comment}`);
-//                 console.log(`after_REPLY: ${reply}`);
-//                 console.log(`after_POST: ${post}`);
-//               res.redirect("/");
-//             };
-//           });
-//         }
-//       });
-//     }
-//   });
-// });
 module.exports = router;

@@ -13,7 +13,7 @@
     <h2>Comments:</h2>
       <div class="row">
         <% post.comments.forEach(function(comment){ %>
-          <%- include('../partials/comment', {comment: comment}) %>
+          <%- include('../partials/comment', {sub: sub, post: post, comment: comment}) %>
         <% }) %>
       </div>
   </div>

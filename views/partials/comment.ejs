@@ -1,8 +1,8 @@
 <div class="col-xs-12 comment-indent">
-  <p><%= comment.text %></p>
+  <p><%= comment.text %></p><a href="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>/replies/new">Reply</a>
   <% if(comment.comments){ %>
     <% comment.comments.forEach(function(reply){ %>
       <%- include('comment', {comment: reply}) %>
-    <% }) %>
+    <% }); %>
   <% } %>
 </div>
