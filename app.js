@@ -64,7 +64,7 @@ app.use("/s/:id/posts/:post_id/comments", commentRoutes);
 app.use("/s/:id/posts/:post_id/comments/:comment_id/replies", repliesRoutes);
 
 // Server startup
-const port = (process.env.PORT || 3000);
+const port = (process.env.PORT || 8000);
 app.listen(port, function(req,res){
     console.log(`Server started on port ${port}`);
 });
