@@ -16,5 +16,12 @@ const CommentSchema = new mongoose.Schema({
 	usePushEach: true
 });
 
+let autoPopulate = function(next){
+	this.populate('comments');
+	next();
+}
+
+CommentSchema.pre('findOne', autoPopulate).pre('find', autoPopulate);
+
 module.exports = mongoose.model("Comment", CommentSchema);
  

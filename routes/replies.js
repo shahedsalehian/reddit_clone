@@ -38,9 +38,7 @@ router.post("/", function(req,res){
     if(err){
       console.log(err);
     }else{
-      console.log(`Comment to which we are replying: ${comment}`);
       Comment.create(req.body.reply, function(err,reply){
-        console.log(`Reply to the comment: ${reply}`);
         if(err){
           console.log(err);
         }else{
