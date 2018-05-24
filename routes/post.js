@@ -47,7 +47,7 @@ router.post("/",middleware.isLoggedIn, function(req,res){
 
 //SHOW Post
 router.get("/:post_id", function(req,res){
-  Post.findById(req.params.post_id).populate({path: 'comments', populate: {path: 'comments'}}).exec(function(err,post){
+  Post.findById(req.params.post_id).populate('comments').populate({path: 'comments', populate: {path: 'comments'}}).exec(function(err,post){
     if(err){
       console.log(err);
     }else{

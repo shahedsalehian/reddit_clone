@@ -38,15 +38,13 @@ router.post("/", function(req,res){
     if(err){
       console.log(err);
     }else{
-      Comment.create(req.body.comment, function(err,reply){
+      console.log(`Comment to which we are replying: ${comment}`);
+      Comment.create(req.body.reply, function(err,reply){
+        console.log(`Reply to the comment: ${reply}`);
         if(err){
           console.log(err);
         }else{
-          reply.time = moment().format("dddd, MMMM Do YYYY");
-          reply.author.id = req.user._id;
-          reply.author.username = req.user.username;
-          reply.save();
-          comment.comments.push(comment);
+          comment.comments.push(reply);
           comment.save();
           res.redirect(`/s/${req.params.id}/posts/${req.params.post_id}`);
         }
