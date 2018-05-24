@@ -10,8 +10,8 @@ const CommentSchema = new mongoose.Schema({
 		username: String
 	},
 	updatedAt: Date,
-  createdAt: Date,
-  comments: [ this ]
+	createdAt: Date,
+	comments: [ {type: mongoose.Schema.Types.ObjectId, ref: 'Comment'} ]
 },{
 	usePushEach: true
 });
