@@ -13,14 +13,15 @@ router.post("/",middleware.isLoggedIn,function(req,res){
   Post.findById(req.params.post_id, function(err,post){
     if(err){
       console.log(err);
-      res.redirect("/s/"+ req.params.id +"/posts/"+req.params.post_id);
+      res.redirect("/s/"+ req.params.id +"/posts/"+post._id);
     }else{
       Comment.create(req.body.comment, function(err,comment){
         console.log(`Comment: ${comment}`)
         if(err){
           console.log(err);
         }else{
-          comment.time = moment().format("dddd, MMMM Do YYYY");
+          comment.updatedAt = moment();
+          comment.createdAt = moment();
           comment.author.id = req.user._id;
           comment.author.username = req.user.username;
           comment.save();

@@ -51,7 +51,7 @@ router.get("/:post_id", function(req,res){
     if(err){
       console.log(err);
     }else{
-      res.render("posts/show", {post: post, sub: req.params.id});
+      res.render("posts/show", {post: post, sub: req.params.id, moment: moment});
     }
   });
 });

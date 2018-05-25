@@ -32,7 +32,7 @@ router.get("/new", middleware.isLoggedIn, function(req,res){
   });
 });
 
-// CREATE
+// CREATE REPLY
 router.post("/", function(req,res){
   Comment.findById(req.params.comment_id, function(err,comment){
     if(err){
@@ -42,6 +42,11 @@ router.post("/", function(req,res){
         if(err){
           console.log(err);
         }else{
+          reply.author.id = req.user._id;
+          reply.author.username = req.user.username;
+          reply.createdAt = moment();
+          reply.updatedAt = moment();
+          reply.save();
           comment.comments.push(reply);
           comment.save();
           res.redirect(`/s/${req.params.id}/posts/${req.params.post_id}`);
