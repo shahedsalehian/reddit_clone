@@ -1,14 +1,12 @@
-.post-list{
-  margin-top: 10px;
-  counter-reset: item;
-}
-.post-list-item::before{
-  counter-increment: item;
-  content: counter(item);
-  margin-right: 5px;
+.subreddit-list{
+  list-style-type: none;
+  padding: 0;
 }
 
-.post-list-item{
-  display: flex;
-  margin-bottom: 5px;
+.subreddit-list li{
+  margin: 2px;
+}
+
+.subreddit-list a{
+  text-decoration: none;
 }

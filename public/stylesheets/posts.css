@@ -19,3 +19,26 @@
     margin-bottom: -10px;
 }
 
+.post-list{
+    margin-top: 10px;
+    counter-reset: item;
+}
+
+.post-list-item::before{
+    counter-increment: item;
+    content: counter(item);
+    margin-right: 5px;
+}
+
+.post-list-item{
+    display: flex;
+    margin-bottom: 5px;
+}
+
+.post-list-item a, input{
+    text-decoration: none;
+}
+
+.post-list-item a:hover, input:hover{
+    text-decoration: underline;
+}

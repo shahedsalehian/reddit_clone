@@ -1,12 +1,10 @@
 <% include partials/header %>
 
 <h3>Subreddits</h3>
-<div>
-		<ul>
-			<% subs.forEach(function(sub){ %>
-				<li><a href="/s/<%= sub._id %>"><%= sub.name %></a></li>
-			<% }) %>
-		</ul>
-</div>
+	<ul class="subreddit-list">
+		<% subs.forEach(function(sub){ %>
+			<li><a href="/s/<%= sub._id %>"><%= sub.name %></a></li>
+		<% }) %>
+	</ul>
 
 <% include partials/footer  %>

@@ -28,6 +28,7 @@ app.use(methodOverride("_method")); // methodOverride for update/delete posts
 
 // define where static files should be served from
 app.use(express.static(__dirname + "/public"));
+
 // use flash messages
 app.use(flash());
 

@@ -8,6 +8,7 @@ TODO:
 - add voting buttons
 - add time to posts
 - create front-page
+- add markdown-editing
 
 
 

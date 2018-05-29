@@ -4,7 +4,7 @@
   <div class="post">
     <div class="post-head">
       <span class="post-title"><%= post.title %></span>
-      <span class="details">by <%= post.author.username %></span>
+      <span class="details">by <%= post.author.username %> at <%= moment(post.createdAt).format("YYYY-MM-DD HH:MM") %></span>
     </div>
     <p class="post-text"><%= post.text %></p>
   </div>

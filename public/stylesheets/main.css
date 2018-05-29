@@ -53,5 +53,9 @@ nav ul li a:hover{
     font-size: inherit;
     cursor: pointer;
     color: #0000EE;
+    text-decoration: none;
+}
+
+.button-as-text:hover{
     text-decoration: underline;
 }

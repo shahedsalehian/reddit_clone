@@ -19,7 +19,6 @@ router.get("/", function(req,res){
           res.render("index", {subs: subs, posts: posts});
         }
       })
-      
     }
   })
 });
