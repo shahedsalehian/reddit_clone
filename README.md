@@ -7,6 +7,7 @@ TODO:
 - comment count on post
 - add voting buttons
 - add time to posts
+- create front-page
 
 
 
