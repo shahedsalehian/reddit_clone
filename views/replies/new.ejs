@@ -1,11 +1,9 @@
 <% include ../partials/header %>
   <h1>Reply</h1>
   <form action="/s/<%= sub._id %>/posts/<%= post._id %>/comments/<%= comment._id %>/replies" method="post">
-    <label for="reply">Reply</label>
-    <p><%= comment.text %></p>
-
+    <p class="post post-text"><%= comment.text %></p>
     <div>
-      <label for="Reply">Reply</label>
+      <label for="Reply">Reply</label><br>
       <input type="text" name="reply[text]" >
     </div>
     <div>

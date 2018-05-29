@@ -33,7 +33,7 @@
         <a href="/s/new">New Sub</a>
       </li>
       <% if(!currentUser){ %>
-        <li>
+        <li class="push-right">
           <a href="/login">Login</a>
         </li>
         <li>
@@ -46,6 +46,7 @@
       <% } %>
     </ul>
   </nav>
+  
   <div>
     <% if(error && error.length > 0){ %>
       <div role="alert">

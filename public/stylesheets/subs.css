@@ -1,20 +1,14 @@
-.astext {
-    background: none;
-    color: blue;
-    border: none;
-    margin-right: 5px;
-    padding: 0;
-    cursor: pointer;
-    text-decoration: underline;    
-    font-family: 'Times New Roman', Times, serif;
-
-}
-
-.astext:hover{
-  text-decoration: underline;
-}
-
 .post-list{
-  background-color: rgba(240,240,240);
-  list-style-type: none;
+  margin-top: 10px;
+  counter-reset: item;
+}
+.post-list-item::before{
+  counter-increment: item;
+  content: counter(item);
+  margin-right: 5px;
+}
+
+.post-list-item{
+  display: flex;
+  margin-bottom: 5px;
 }

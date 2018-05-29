@@ -5,6 +5,10 @@ body, html{
     padding: 5px;
 }
 
+input, select, textarea, button {
+    font-family: inherit;
+}
+
 .details{
   font-size: 0.7rem;
   margin-top: -10px;
@@ -40,4 +44,14 @@ nav ul li a:hover{
 .form-input{
     width: 33%;
     min-width: 300px;
+}
+
+.button-as-text{
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    cursor: pointer;
+    color: #0000EE;
+    text-decoration: underline;
 }

@@ -1,31 +1,30 @@
-<% include ../partials/header %>
+<%- include ../partials/header %>
 
   <div>
-    <div>
-      <h3>/s/<%= sub.name %></h3>
-          <% if(currentUser){ %>
-            <div>
-                <a href="/s/<%= sub._id %>/posts/new">New post</a>
-            </div>
-          <% } %>
-    </div>
+    <h3>
+      /s/<%= sub.name %>
+    </h3>
+    <% if(currentUser){ %>
+      <div>
+          <a href="/s/<%= sub._id %>/posts/new">Submit a new text post</a>
+      </div>
+    <% } %>
+  </div>
 
-    <ul class="post-list">
-      <% sub.posts.forEach(function(post){ %>
-        <li><a href="/s/<%= sub._id %>/posts/<%= post._id %>"><%= post.title %></a>
-          <div>
-            <form action="/s/<%= sub._id %>/posts/<%= post._id %>?_method=DELETE" method="POST">
-              <input type="submit" value="Delete" name="submit">
-            </form>
-          </div>
-          <div>
-            <a href="/s/<%= sub._id %>/posts/<%=post._id%>/edit">Edit</a>
-          </div>
-        </li>
-      <% }) %>
-    </ul>
-
+  <div class="post-list">
+    <% sub.posts.forEach(function(post){ %>
+      <div class="post-list-item">
+        <a href="/s/<%= sub._id %>/posts/<%= post._id %>">
+          <%= post.title %>
+        </a>
+        <form class="push-right" action="/s/<%= sub._id %>/posts/<%= post._id %>?_method=DELETE" method="POST">
+          <input class="button-as-text" type="submit" value="Delete" name="submit">
+        </form>
+        <a href="/s/<%= sub._id %>/posts/<%= post._id %>/edit">Edit</a>
+      </div>
+    <% }) %>
   </div>
 
 
-<% include ../partials/footer %>
+
+<%- include ../partials/footer %>
