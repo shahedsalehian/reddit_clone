@@ -1,0 +1,15 @@
+<%- include ../partials/header %>
+  <h3>Edit Comment</h3>
+  <form action="/s/<%= sub %>/posts/<%= post._id %>/comments/" method="put">
+    <div>
+      <div>
+        <input class="form-input" type="text" name="comment[text]" value="<%= comment.text %>"required>
+      </div>
+    </div>
+    <div>
+      <div>
+        <input type="submit" name="submit" value="Submit">
+      </div>
+    </div>
+  </form>
+<%- include ../partials/footer %>
