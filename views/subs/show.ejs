@@ -1,25 +1,25 @@
 <% include ../partials/header %>
 
-  <div class="container">
+  <div>
     <div>
-      <h1 style="display: inline;"><%= sub.name %></h1>
+      <h3>/s/<%= sub.name %></h3>
           <% if(currentUser){ %>
             <div>
-                <a class="text-info" href="/s/<%= sub._id %>/posts/new">New post</a>
+                <a href="/s/<%= sub._id %>/posts/new">New post</a>
             </div>
           <% } %>
     </div>
 
-    <ul class="list-group">
+    <ul class="post-list">
       <% sub.posts.forEach(function(post){ %>
-        <li class="list-group-item bg-dark"><a class="text-white" href="/s/<%= sub._id %>/posts/<%= post._id %>"><%= post.title %></a>
-          <div class="float-right btn-space">
+        <li><a href="/s/<%= sub._id %>/posts/<%= post._id %>"><%= post.title %></a>
+          <div>
             <form action="/s/<%= sub._id %>/posts/<%= post._id %>?_method=DELETE" method="POST">
-              <button class="astext text-muted">Delete</button>
+              <input type="submit" value="Delete" name="submit">
             </form>
           </div>
-          <div class="float-right btn-space">
-            <a href="/s/<%= sub._id %>/posts/<%=post._id%>/edit"><button class="astext text-muted">Edit</button></a>
+          <div>
+            <a href="/s/<%= sub._id %>/posts/<%=post._id%>/edit">Edit</a>
           </div>
         </li>
       <% }) %>

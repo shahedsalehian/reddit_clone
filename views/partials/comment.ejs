@@ -1,9 +1,10 @@
 <div class="comment-indent">
   <p><%= comment.text %></p>
-  <p>by <%= comment.author.username %> at <%= moment(comment.createdAt).format("YYYY-MM-DD HH:MM") %></p>
-  <a href="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>/replies/new">
-    Reply
-  </a>
+  <p class="details">by <%= comment.author.username %> at <%= moment(comment.createdAt).format("YYYY-MM-DD HH:MM") %>
+    <a href="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>/replies/new">
+      Reply
+    </a>
+  </p>
 
   <% if(comment.comments){ %>
     <% comment.comments.forEach(function(reply){ %>

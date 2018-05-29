@@ -1,38 +1,38 @@
 <% include ../partials/header %>
 <div>
   <!-- Post -->
-  <div class="jumbotron text-dark" style="margin-top: 10px;">
-    <h3><%= post.title %></h3>
-    "<%= post.text %>"
-    <p>by <%= post.author.username %></p>
+  <div class="post">
+    <div class="post-head">
+      <span class="post-title"><%= post.title %></span>
+      <span class="details">by <%= post.author.username %></span>
+    </div>
+    <p class="post-text"><%= post.text %></p>
   </div>
 
   <!-- Comments-Section -->
-  <div class="comment-section">
+  <div>
+     <!-- Comment Form -->
+     <% if(currentUser){ %>
+      <form action="/s/<%= sub %>/posts/<%= post._id %>/comments/" method="post">
+        <div>
+          <div>
+            <input class="form-input" type="text" name="comment[text]" placeholder="Enter Your Comment Here">
+          </div>
+        </div>
+        <div>
+          <div>
+            <input type="submit" name="submit" value="Submit">
+          </div>
+        </div>
+      </form>
+      <% } %>
     <!-- Comments list -->
-    <h2>Comments:</h2>
-      <div class="row">
+    <h3><%= post.comments.length %> Comments:</h3>
+      <div>
         <% post.comments.forEach(function(comment){ %>
           <%- include('../partials/comment', {sub: sub, post: post, comment: comment, moment: moment}) %>
         <% }) %>
       </div>
-  </div>
-
-    <!-- Comment Form -->
-    <% if(currentUser){ %>
-    <form action="/s/<%= sub %>/posts/<%= post._id %>/comments/" method="post">
-      <div class="form-row">
-        <div class="form-group col-md-6">
-          <input class="form-control" type="text" name="comment[text]" placeholder="Enter Your Comment Here">
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-3">
-          <input class="form-control" type="submit" name="submit" value="Submit">
-        </div>
-      </div>
-    </form>
-    <% } %>
   </div>
 </div>
 <% include ../partials/footer %>

@@ -1,0 +1,43 @@
+body, html{
+    font-family: 'Open Sans', sans-serif;
+    min-width: 463px;
+    height: 100vh;
+    padding: 5px;
+}
+
+.details{
+  font-size: 0.7rem;
+  margin-top: -10px;
+}
+
+nav ul{
+    display:flex;
+    margin:0 -10px;
+    padding: 0;
+    width: 100%;
+}
+
+nav li{
+    margin: 0 10px;
+    list-style-type: none;
+}
+
+
+nav a{
+    text-decoration: none;
+    color: black;
+}
+
+nav ul li a:hover{
+    color: rgb(79, 114, 167);
+    text-decoration: underline;
+}
+
+.push-right{
+    margin-left: auto;
+}
+
+.form-input{
+    width: 33%;
+    min-width: 300px;
+}

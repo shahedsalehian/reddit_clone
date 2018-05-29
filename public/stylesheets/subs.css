@@ -1,11 +1,20 @@
 .astext {
     background: none;
+    color: blue;
     border: none;
     margin-right: 5px;
     padding: 0;
     cursor: pointer;
+    text-decoration: underline;    
+    font-family: 'Times New Roman', Times, serif;
+
 }
 
 .astext:hover{
   text-decoration: underline;
+}
+
+.post-list{
+  background-color: rgba(240,240,240);
+  list-style-type: none;
 }
