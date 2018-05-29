@@ -28,7 +28,7 @@ router.get("/:id", function(req,res){
 		if(err){
 			console.log(err);
 		}else{
-			res.render("subs/show",{sub: foundSub});
+			res.render("subs/show",{sub: foundSub, moment: moment});
 		}
 	});
 });

@@ -3,6 +3,7 @@ body, html{
     min-width: 463px;
     height: 100vh;
     padding: 5px;
+    background: rgb(245, 245, 245);
 }
 
 input, select, textarea, button {
@@ -11,7 +12,7 @@ input, select, textarea, button {
 
 .details{
   font-size: 0.7rem;
-  margin-top: -10px;
+  margin-top: auto;
 }
 
 nav ul{

@@ -3,7 +3,8 @@ const router    = express.Router();
 const passport  = require("passport");
 const User      = require("../models/user");
 const Sub       = require('../models/sub');
-const Post   = require("../models/post");
+const Post      = require("../models/post");
+const moment    = require("moment");
 
 
 //Index Page for All subreddits
@@ -16,7 +17,7 @@ router.get("/", function(req,res){
         if(err){
           console.log(err);
         }else{
-          res.render("index", {subs: subs, posts: posts});
+          res.render("index", {subs: subs, posts: posts, moment: moment});
         }
       })
     }

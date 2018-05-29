@@ -4,11 +4,11 @@
     <h3>
       /s/<%= sub.name %>
     </h3>
-    <% if(currentUser){ %>
-      <div>
-          <a href="/s/<%= sub._id %>/posts/new">Submit a new text post</a>
-      </div>
-    <% } %>
+  <% if(currentUser){ %>
+    <div>
+        <a href="/s/<%= sub._id %>/posts/new">Submit a new text post</a>
+    </div>
+  <% } %>
   </div>
 
   <div class="post-list">
@@ -17,6 +17,9 @@
         <a href="/s/<%= sub._id %>/posts/<%= post._id %>">
           <%= post.title %>
         </a>
+        <span class="details">
+          by <%= post.author.username %> at <%= moment(post.createdAt).format("YYYY-MM-DD HH:MM") %>
+        </span>
         <form class="push-right" action="/s/<%= sub._id %>/posts/<%= post._id %>?_method=DELETE" method="POST">
           <input class="button-as-text" type="submit" value="Delete" name="submit">
         </form>
