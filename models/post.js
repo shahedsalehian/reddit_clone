@@ -5,6 +5,7 @@ const PostSchema = new mongoose.Schema({
     text: String,
     createdAt: Date,
     updatedAt: Date,
+    comments_count: {type: Number, default: 0},
     author: {
      	id: {
          type: mongoose.Schema.Types.ObjectId,
@@ -24,7 +25,7 @@ const PostSchema = new mongoose.Schema({
         ref: "Sub"
         },
       name: String
-    }
+    },
 },{
   usePushEach: true
 });

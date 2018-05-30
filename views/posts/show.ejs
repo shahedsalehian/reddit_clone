@@ -27,7 +27,7 @@
       </form>
       <% } %>
     <!-- Comments list -->
-    <h3><%= post.comments.length %> Comments:</h3>
+    <h3><%= post.comments_count %> Comments:</h3>
       <div>
         <% post.comments.forEach(function(comment){ %>
           <%- include('../partials/comment', {sub: sub, post: post, comment: comment, moment: moment}) %>

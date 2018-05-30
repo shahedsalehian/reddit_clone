@@ -25,6 +25,7 @@ router.post("/",middleware.isLoggedIn,function(req,res){
           comment.author.username = req.user.username;
           comment.save();
           post.comments.push(comment);
+          post.comments_count++;
           post.save();
           res.redirect("/s/" + req.params.id + "/posts/" + post._id);
         }
@@ -65,6 +66,14 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req,res
       console.log(err);
       res.redirect(`/s/${req.params.id}/posts/${req.params.post_id}`);
     }else{
+      Post.findById(req.params.post_id, function(err,post){
+        if(err){
+          console.log(err);
+        }else{
+          post.comments_count--;
+          post.save();
+        }
+      });
       res.redirect(`/s/${req.params.id}/posts/${req.params.post_id}`);
     }
   });

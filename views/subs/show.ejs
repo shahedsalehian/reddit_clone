@@ -19,6 +19,7 @@
         </a>
         <span class="details">
           by <%= post.author.username %> at <%= moment(post.createdAt).format("YYYY-MM-DD HH:MM") %>
+          has <%= post.comments_count %> comments
         </span>
         <% if(currentUser && post.author.id.equals(currentUser._id)) {%>
           <form class="push-right" action="/s/<%= sub._id %>/posts/<%= post._id %>?_method=DELETE" method="POST">

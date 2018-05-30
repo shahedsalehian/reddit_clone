@@ -1,18 +1,18 @@
 <div class="comment-indent">
   <p><%= comment.text %></p>
-      <form style="display: inline;" action="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-        <p class="details">by <%= comment.author.username %> at <%= moment(comment.createdAt).format("YYYY-MM-DD HH:MM") %>
-          <a href="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>/replies/new">
-            Reply
-          </a>
-        <% if(currentUser && comment.author.id.equals(currentUser._id)) {%>
-          <a href="/s/<%= sub %>/posts/<%= post._id%>/comments/<%= comment._id%>/edit">
-            Edit
-          </a>
-          <input class="button-as-text-details" type="submit" value="Delete" name="submit" />
-        <% } %>
-        </p>
-      </form>
+  <form style="display: inline;" action="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+    <p class="details">by <%= comment.author.username %> at <%= moment(comment.createdAt).format("YYYY-MM-DD HH:MM") %>
+      <a href="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>/replies/new">
+        Reply
+      </a>
+    <% if(currentUser && comment.author.id.equals(currentUser._id)) {%>
+      <a href="/s/<%= sub %>/posts/<%= post._id%>/comments/<%= comment._id%>/edit">
+        Edit
+      </a>
+      <input class="button-as-text-details" type="submit" value="Delete" name="submit" />
+    <% } %>
+    </p>
+  </form>
 
   <% if(comment.comments){ %>
     <% comment.comments.forEach(function(reply){ %>

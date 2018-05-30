@@ -49,6 +49,14 @@ router.post("/", function(req,res){
           reply.save();
           comment.comments.push(reply);
           comment.save();
+          Post.findById(req.params.post_id, function(err,post){
+            if(err){
+              console.log(err);
+            }else{
+              post.comments_count++;
+              post.save();
+            }
+          });
           res.redirect(`/s/${req.params.id}/posts/${req.params.post_id}`);
         }
       });
