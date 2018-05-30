@@ -40,19 +40,21 @@ router.get("/:comment_id/edit", middleware.checkCommentOwnership, function(req,r
     if(err){
       console.log(err);
     }else{
-      res.render("comments/edit", {sub: req.param.id, post: req.params.post_id, comment: comment});
+      res.render("comments/edit", {sub: req.params.id, post: req.params.post_id, comment: comment});
     }
   });
 });
  
 //UPDATE COMMENT
-router.put("/:post_id", middleware.checkCommentOwnership, function(req,res){
-  Comment.findByIdAndUpdate(req.params.post_id, req.body.post, function(err,post){
+router.put("/:comment_id", middleware.checkCommentOwnership, function(req,res){
+  Comment.findByIdAndUpdate(req.params.comment_id, req.body.comment, function(err,comment){
     if(err){
       console.log(err);
       res.redirect("/s");
     }else{
-      res.redirect("/s/" + sub.id +"/posts/" + req.params.post_id);
+      comment.updatedAt = moment();
+      comment.save();
+      res.redirect("/s/" + req.params.id +"/posts/" + req.params.post_id);
     }
   });
 });

@@ -1,6 +1,6 @@
 <%- include ../partials/header %>
   <h3>Edit Comment</h3>
-  <form action="/s/<%= sub %>/posts/<%= post._id %>/comments/" method="put">
+  <form action="/s/<%= sub %>/posts/<%= post %>/comments/<%= comment._id %>?_method=PUT" method="POST">
     <div>
       <div>
         <input class="form-input" type="text" name="comment[text]" value="<%= comment.text %>"required>
