@@ -7,6 +7,7 @@ TODO:
 - add voting buttons
 - create front-page
 - add markdown-editing
+- user roles (admin/user/mod)
 
 
 
