@@ -6,3 +6,6 @@
   font-size: 0.9rem;
 }
 
+.comment-details{
+  display:flex;
+}
