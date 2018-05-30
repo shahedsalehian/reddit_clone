@@ -37,6 +37,7 @@
 
 .post-list-item a{
     text-decoration: none;
+    margin-right: 5px;
 }
 
 .post-list-item a:hover{

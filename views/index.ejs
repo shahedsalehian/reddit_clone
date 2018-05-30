@@ -1,6 +1,9 @@
 <% include partials/header %>
 
 <h3>Subreddits</h3>
+	<% if(currentUser){ %>
+	<a href="/s/new">Create a new subreddit</a>
+	<% } %>
 	<ul class="subreddit-list">
 		<% subs.forEach(function(sub){ %>
 			<li><a href="/s/<%= sub._id %>"><%= sub.name %></a></li>

@@ -4,7 +4,7 @@
   <div class="post">
     <div class="post-head">
       <span class="post-title"><%= post.title %></span>
-      <span class="details">by <%= post.author.username %> at <%= moment(post.createdAt).format("YYYY-MM-DD HH:MM") %></span>
+      <span class="details">by <%= post.author.username %> in <%= post.sub.name %> at <%= moment(post.createdAt).format("YYYY-MM-DD HH:MM") %></span>
     </div>
     <p class="post-text"><%= post.text %></p>
   </div>
@@ -21,7 +21,7 @@
         </div>
         <div>
           <div>
-            <input type="submit" name="submit" value="Submit">
+            <input class="btn" type="submit" name="submit" value="Submit">
           </div>
         </div>
       </form>

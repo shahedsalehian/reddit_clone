@@ -15,6 +15,10 @@ input, select, textarea, button {
   margin-top: auto;
 }
 
+.details a{
+    text-decoration: none;
+}
+
 nav ul{
     display:flex;
     margin:0 -10px;
@@ -45,6 +49,21 @@ nav ul li a:hover{
 .form-input{
     width: 33%;
     min-width: 300px;
+    margin: 10px 0 10px 0;
+    border:0;
+    outline: 0;
+    background: transparent;
+    color: black;
+    border-bottom: 1px solid rgb(140,140,140);
+}
+
+.btn{
+    border:0;
+    outline: 0;
+    color: black;
+    background: transparent;
+    border: 1px solid rgb(140,140,140);
+    border-radius: 5px;
 }
 
 .button-as-text{
