@@ -20,6 +20,7 @@ input, select, textarea, button {
     text-decoration: none;
 }
 
+
 nav ul{
     display:flex;
     padding: 0;
@@ -31,11 +32,14 @@ nav ul{
 }
 
 nav li{
-    margin: 0 10px;
+    margin-right: 10px;
+}
+
+nav li:last-child{
+    margin-right: 0;
 }
 
 nav a{
-
     text-decoration: none;
     color: black;
     text-align: center;
