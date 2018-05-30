@@ -1,18 +1,16 @@
 <div class="comment-indent">
   <p><%= comment.text %></p>
-  <div class="comment-details">
-    <p class="details">by <%= comment.author.username %> at <%= moment(comment.createdAt).format("YYYY-MM-DD HH:MM") %>
-      <a href="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>/replies/new">
-        Reply
-      </a>
-      <a href="/s/<%= sub %>/posts/<%= post._id%>/comments/<%= comment._id%>/edit">
-        Edit
-      </a>
       <form style="display: inline;" action="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-        <input class="button-as-text-details" type="submit" value="Delete" name="submit">
+        <p class="details">by <%= comment.author.username %> at <%= moment(comment.createdAt).format("YYYY-MM-DD HH:MM") %>
+          <a href="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>/replies/new">
+            Reply
+          </a>
+          <a href="/s/<%= sub %>/posts/<%= post._id%>/comments/<%= comment._id%>/edit">
+            Edit
+          </a>
+          <input class="button-as-text-details" type="submit" value="Delete" name="submit" />
+        </p>
       </form>
-    </p>
-  </div>
 
   <% if(comment.comments){ %>
     <% comment.comments.forEach(function(reply){ %>
