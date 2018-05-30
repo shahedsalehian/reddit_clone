@@ -6,7 +6,6 @@ TODO:
 - change exact date-time to time.from creation
 - comment count on post
 - add voting buttons
-- add time to posts
 - create front-page
 - add markdown-editing
 

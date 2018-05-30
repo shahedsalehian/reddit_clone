@@ -59,7 +59,7 @@ router.get("/:post_id", function(req,res){
 
 
 //DELETE Post
-router.delete("/:post_id", middleware.isLoggedIn, function(req,res){
+router.delete("/:post_id", middleware.checkPostOwnership, function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
       console.log(err);
@@ -78,7 +78,7 @@ router.delete("/:post_id", middleware.isLoggedIn, function(req,res){
 });
 
 // EDIT Post
-router.get("/:post_id/edit", middleware.isLoggedIn, function(req,res){
+router.get("/:post_id/edit", middleware.checkPostOwnership, function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
       console.log(err);
@@ -98,7 +98,7 @@ router.get("/:post_id/edit", middleware.isLoggedIn, function(req,res){
 
 
 // UPDATE Post
-router.put("/:post_id", middleware.isLoggedIn, function(req,res){
+router.put("/:post_id", middleware.checkPostOwnership, function(req,res){
   Sub.findById(req.params.id, function(err,sub){
     if(err){
       console.log(err);
