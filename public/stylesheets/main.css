@@ -13,7 +13,6 @@ input, select, textarea, button {
 
 .details{
   font-size: 0.7rem;
-  margin-top: auto;
 }
 
 .details a{
@@ -96,4 +95,21 @@ nav ul li a:hover{
 
 .button-as-text:hover{
     text-decoration: underline;
+}
+
+
+.arrow{
+    box-sizing: border-box;
+    height: 5px;
+    width: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 0px 1px 1px 0px;
+    transform: rotate(45deg);
+    transition: border-width 150ms ease-in-out;
+}
+
+.arrow:hover {
+    border-bottom-width: 2px;
+    border-right-width: 2px;
 }

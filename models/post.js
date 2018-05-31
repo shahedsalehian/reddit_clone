@@ -5,6 +5,7 @@ const PostSchema = new mongoose.Schema({
     text: String,
     createdAt: Date,
     updatedAt: Date,
+    score: {type: Number, default: 0},
     comments_count: {type: Number, default: 0},
     author: {
      	id: {

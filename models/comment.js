@@ -11,6 +11,7 @@ const CommentSchema = new mongoose.Schema({
 	},
 	updatedAt: Date,
 	createdAt: Date,
+	score: {type: Number, default: 0},
 	comments: [ {type: mongoose.Schema.Types.ObjectId, ref: 'Comment'} ]
 },{
 	usePushEach: true

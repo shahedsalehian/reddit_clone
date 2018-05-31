@@ -1,7 +1,14 @@
 <div class="comment-indent">
+    <div class="score">
+        <div class="arrow-up"></div>
+          <div><%= comment.score %></div>
+        <div class="arrow-down"></div>
+      </div>
   <p><%= comment.text %></p>
   <form style="display: inline;" action="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
-    <p class="details">by <%= comment.author.username %> at <%= moment(comment.createdAt).format("YYYY-MM-DD HH:MM") %>
+    <p class="details">by <%= comment.author.username %> created at
+       <%= moment(comment.createdAt).format("YYYY-MM-DD HH:MM") %> updated at 
+       <%= moment(comment.updatedAt).format("YYYY-MM-DD HH:MM") %>
       <a href="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>/replies/new">
         Reply
       </a>

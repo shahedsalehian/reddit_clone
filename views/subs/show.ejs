@@ -14,19 +14,25 @@
   <div class="post-list">
     <% sub.posts.forEach(function(post){ %>
       <div class="post-list-item">
-        <a href="/s/<%= sub._id %>/posts/<%= post._id %>">
-          <%= post.title %>
-        </a>
-        <span class="details">
-          by <%= post.author.username %> at <%= moment(post.createdAt).format("YYYY-MM-DD HH:MM") %>
-          has <%= post.comments_count %> comments
-        </span>
-        <% if(currentUser && post.author.id.equals(currentUser._id)) {%>
-          <form class="push-right" action="/s/<%= sub._id %>/posts/<%= post._id %>?_method=DELETE" method="POST">
-            <input class="button-as-text" type="submit" value="Delete" name="submit">
-          </form>
-          <a href="/s/<%= sub._id %>/posts/<%= post._id %>/edit">Edit</a>
-        <% } %>
+          <div class="score">
+            <div class="arrow-up"></div>
+              <div><%= post.score %></div>
+            <div class="arrow-down"></div>
+          </div>
+          <a class="post-link" href="/s/<%= sub._id %>/posts/<%= post._id %>">
+            <%= post.title %>
+          </a>
+          <span class="details">
+            by <%= post.author.username %> 
+            at <%= moment(post.createdAt).format("YYYY-MM-DD HH:MM") %>
+            has <%= post.comments_count %> comments
+          </span>
+          <% if(currentUser && post.author.id.equals(currentUser._id)) {%>
+            <form class="push-right delete-form" action="/s/<%= sub._id %>/posts/<%= post._id %>?_method=DELETE" method="POST">
+              <input class="button-as-text" type="submit" value="Delete" name="submit">
+              <a href="/s/<%= sub._id %>/posts/<%= post._id %>/edit">Edit</a>
+            </form>
+          <% } %>
       </div>
     <% }) %>
   </div>

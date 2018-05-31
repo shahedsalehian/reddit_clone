@@ -1,45 +1,75 @@
 .post{
-    margin-top: 10px;
-    background-color: rgb(255,255,255)
+  margin-top: 10px;
+  background-color: rgb(255,255,255)
 }
 
 .post-text{
-    border: 1px solid rgb(148,148,148);
-    border-radius: 5px;
-    padding: 5px 2px;
-    font-size: 0.9rem;
+  border: 1px solid rgb(148,148,148);
+  border-radius: 5px;
+  padding: 5px 2px;
+  font-size: 0.9rem;
 }
 
 .post-head{
-    margin-bottom: -10px;
+  margin-bottom: -10px;
 }
 
 .post-title{
-    display: block;
-    margin-bottom: -10px;
+  display: block;
+  margin-bottom: -10px;
 }
 
 .post-list{
-    margin-top: 10px;
-    counter-reset: item;
+  counter-reset: item;
 }
 
 .post-list-item::before{
-    counter-increment: item;
-    content: counter(item);
-    margin-right: 5px;
+  counter-increment: item;
+  content: counter(item);
+  margin-right: 10px;
 }
 
 .post-list-item{
-    display: flex;
-    margin-bottom: 5px;
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
 }
 
 .post-list-item a{
-    text-decoration: none;
-    margin-right: 5px;
+  text-decoration: none;
+  margin-right: 10px;
 }
 
 .post-list-item a:hover{
-    text-decoration: underline;
+  text-decoration: underline;
+}
+
+.arrow-up {
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+  transition: border-width 150ms ease-in-out;
+  margin-right: 10px;
+}
+
+.arrow-up:hover {
+  border-bottom: 5px solid red;
+
+}
+
+.arrow-down {
+  width: 0; 
+  height: 0; 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+  transition: border-width 150ms ease-in-out;
+  margin-right: 10px;
+
+}
+
+.arrow-down:hover {
+  border-top: 5px solid red;
 }

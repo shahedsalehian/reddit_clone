@@ -3,12 +3,10 @@
     <h1>New Post for /<%= sub.name %></h1>
     <form action="/s/<%= sub._id %>/posts" method="post">
       <div>
-        <label>Title</label>
-        <input type="text" name="post[title]" required />
+        <input class="form-input" type="text" name="post[title]" placeholder="Title" required />
       </div>
       <div>
-        <label for="post[text]">Text</label>
-        <input type="text" name="post[text]" required />
+        <input class="form-input" type="text" name="post[text]" placeholder="Text" required />
       </div>
       <div>
         <input type="submit" name="Submit" value="Submit">

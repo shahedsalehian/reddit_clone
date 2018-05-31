@@ -109,6 +109,8 @@ router.put("/:post_id", middleware.checkPostOwnership, function(req,res){
           console.log(err);
           res.redirect("/s");
         }else{
+          post.updatedAt = moment();
+          post.save();
           res.redirect("/s/" + sub.id +"/posts/" + req.params.post_id);
         }
       });
