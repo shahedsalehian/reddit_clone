@@ -9,3 +9,13 @@
 .comment-indent input{
   padding: 0;
 }
+
+.score-text-inline{
+  display: flex;
+  align-items: center;
+}
+
+.detail-form p{
+  margin:0;
+  margin-bottom: 5px;
+}

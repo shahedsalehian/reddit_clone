@@ -56,7 +56,6 @@
 
 .arrow-up:hover {
   border-bottom: 5px solid red;
-
 }
 
 .arrow-down {
@@ -67,9 +66,9 @@
   border-top: 5px solid black;
   transition: border-width 150ms ease-in-out;
   margin-right: 10px;
-
 }
 
 .arrow-down:hover {
   border-top: 5px solid red;
 }
+

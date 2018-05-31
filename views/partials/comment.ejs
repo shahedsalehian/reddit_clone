@@ -1,11 +1,13 @@
 <div class="comment-indent">
-    <div class="score">
+    <div class="score-text-inline">
+      <div class="score">
         <div class="arrow-up"></div>
-          <div><%= comment.score %></div>
+        <div><%= comment.score %></div>
         <div class="arrow-down"></div>
       </div>
-  <p><%= comment.text %></p>
-  <form style="display: inline;" action="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
+      <p><%= comment.text %></p>
+    </div>
+  <form class="detail-form" action="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>?_method=DELETE" method="POST">
     <p class="details">by <%= comment.author.username %> created at
        <%= moment(comment.createdAt).format("YYYY-MM-DD HH:MM") %> updated at 
        <%= moment(comment.updatedAt).format("YYYY-MM-DD HH:MM") %>
