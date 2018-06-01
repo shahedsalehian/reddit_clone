@@ -2,12 +2,10 @@
 <h1>EDIT <%= post.title %> </h1>
   <form action="/s/<%= sub._id %>/posts/<%= post._id %>?_method=PUT" method="POST">
     <div>
-      <label for="post[title]">Title</label>
-      <input type="text" name="post[title]" value="<%= post.title %>">
+      <input class="form-input" type="text" placeholder="Title" name="post[title]" value="<%= post.title %>">
     </div>
     <div>
-      <label for="post[text]">Text</label>
-      <input type="textarea" name="post[text]" value="<%= post.text %>">
+      <input class="form-input" type="textarea" placeholder="Text" name="post[text]" value="<%= post.text %>">
     </div>
     <div>
       <input type="submit" name="Submit" value="Update">
