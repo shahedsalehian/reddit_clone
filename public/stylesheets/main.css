@@ -141,3 +141,9 @@ nav ul li a:hover{
   margin:0;
   padding:0;
 }
+
+.arrow{
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+}
