@@ -1,9 +1,13 @@
 <div class="comment-indent">
   <div class="score-text-inline">
     <div class="score-container">
-      <div class="arrow-up"></div>
-        <div class="score"><%= comment.score %></div>
-      <div class="arrow-down"></div>
+        <form class="upvote" action="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>/upvote?_method=PUT" method="POST">
+          <button type="submit" class="arrow-up"></button>
+        </form>
+          <div class="score"><%= comment.score %></div>
+        <form class="downvote" action="/s/<%= sub %>/posts/<%= post._id %>/comments/<%= comment._id %>/downvote?_method=PUT" method="POST">
+            <button type="submit" class="arrow-down"></button>
+        </form>
     </div>
     <p><%= comment.text %></p>
   </div>
