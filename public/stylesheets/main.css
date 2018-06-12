@@ -1,10 +1,10 @@
 body, html{
-    font-family: 'Open Sans', sans-serif;
-    min-width: 463px;
-    height: 100vh;
-    padding: 5px;
-    margin: 0;
-    background: rgb(240, 240, 240);
+  font-family: 'Open Sans', sans-serif;
+  min-width: 463px;
+  height: 100vh;
+  padding: 5px;
+  margin: 0;
+  background: rgb(240, 240, 240);
 }
 
 input, select, textarea, button {
@@ -16,125 +16,118 @@ input, select, textarea, button {
 }
 
 .details a{
-    text-decoration: none;
+  text-decoration: none;
 }
 
 
 nav ul{
-    display:flex;
-    padding: 0;
-    width: 100%;
-    height: 25px;
-    line-height: 25px;
-    margin: 0;
-    list-style-type: none;
+  display:flex;
+  padding: 0;
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  margin: 0;
+  list-style-type: none;
 }
 
 nav li{
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 nav li:last-child{
-    margin-right: 0;
+  margin-right: 0;
 }
 
 nav a{
-    text-decoration: none;
-    color: black;
-    text-align: center;
+  text-decoration: none;
+  color: black;
+  text-align: center;
 }
 
 nav ul li a:hover{
-    color: rgb(79, 114, 167);
-    text-decoration: underline;
+  color: rgb(79, 114, 167);
+  text-decoration: underline;
 }
 
 .push-right{
-    margin-left: auto;
+  margin-left: auto;
 }
 
 .form-input{
-    width: 33%;
-    min-width: 300px;
-    margin: 10px 0 10px 0;
-    border: 0;
-    outline: 0;
-    background: transparent;
-    color: black;
-    border-bottom: 1px solid rgb(140,140,140);
+  width: 33%;
+  min-width: 300px;
+  margin: 10px 0 10px 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  color: black;
+  border-bottom: 1px solid rgb(140,140,140);
 }
 
 .btn{
-    border:0;
-    outline: 0;
-    color: black;
-    background: transparent;
-    border: 1px solid rgb(140,140,140);
-    border-radius: 5px;
+  border:0;
+  outline: 0;
+  color: black;
+  background: transparent;
+  border: 1px solid rgb(140,140,140);
+  border-radius: 5px;
 }
 
 .button-as-text{
-    background: none;
-    border: none;
-    color: inherit;
-    font-size: inherit;
-    cursor: pointer;
-    color: #0000EE;
-    text-decoration: none;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
+  color: #0000EE;
+  text-decoration: none;
 }
 
 .button-as-text-details{
-    background: transparent;
-    border: none;
-    color: inherit;
-    cursor: pointer;
-    color: #0000EE;
-    text-decoration: none;
-    font-size: 0.7rem;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  color: #0000EE;
+  text-decoration: none;
+  font-size: 0.7rem;
 }
 
 .button-as-text:hover{
     text-decoration: underline;
 }
 
-
-.arrow-up:hover {
-  border-bottom: 5px solid red;
-}
-
 .arrow-up {
-  width: 0; 
-  height: 0; 
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-bottom: 5px solid black;
-  transition: border-width 150ms ease-in-out;
   padding: 0;
   margin: 0;
+  background-image: url('../images/party.gif');
+  background-size: 20px 20px;
+  width: 20px;
+  height: 20px;
+  border: 0;
 }
 
 .arrow-down {
-  width: 0;
-  height: 0;
-  border-left: 5px solid transparent;
-  border-right: 5px solid transparent;
-  border-top: 5px solid black;
-  transition: border-width 150ms ease-in-out;
   padding: 0;
   margin: 0;
-}
-
-.arrow-down:hover {
-  border-top: 5px solid red;
+  background-image: url('../images/party.gif');
+  background-size: 20px 20px;
+  width: 20px;
+  height: 20px;
+  border: 0;
+  transform: rotate(180deg);
 }
 
 .score-container{
+  display: flex;
+  align-items: center;
   margin-right: 10px;
-  padding:0;
+  text-align: center;
+  padding: 0;
 }
 
 .score{
-  text-align: center;
+  width: 22px;
 }
 
 .delete-form{
@@ -143,14 +136,14 @@ nav ul li a:hover{
 }
 
 .upvote{
-    margin:0;
-    padding:0;
-    line-height: 0;
+  margin:0;   
+  padding:0;
+  line-height: 0;
 }
 
 .downvote{
-    margin:0;
-    padding:0;
-    line-height: 0;
+  margin:0;
+  padding:0;
+  line-height: 0;
 }
 

@@ -1,12 +1,7 @@
-// document.addEventListener("DOMContentLoaded", function(){
+document.querySelector(".arrow-up").onclick = () => {
+  alert("/s/:id/posts/:post_id/");
+}
 
-//     fetch(`https://localhost:8000/s/${sub._id}/posts/${post._id}/upvote`, {
-//         method: 'PUT'
-//     }).then(checkStatus)
-//       .then(function(){
-//           console.log("UPVOTE");
-//     });
-
-
-// });
-
+document.querySelector(".arrow-down").onclick = () => {
+  alert("Hello-down");
+}
