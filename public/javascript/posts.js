@@ -1,7 +1,15 @@
-document.querySelector(".arrow-up").onclick = () => {
-  alert("/s/:id/posts/:post_id/");
-}
+document.addEventListener("DOMContentLoaded", () => {
+  let upvote = document.querySelectorAll('.upvote');
+  upvote.forEach((item) => {
+    item.firstElementChild.onclick = () => {
+      alert(item.dataset.postId);
+    }
+  });
 
-document.querySelector(".arrow-down").onclick = () => {
-  alert("Hello-down");
-}
+  let downvote = document.querySelectorAll('.downvote');
+  downvote.forEach((item) => {
+    item.firstElementChild.onclick = () => {
+      alert(item.dataset.postId);
+    }
+  });
+});

@@ -132,7 +132,6 @@ router.put("/:post_id/upvote", middleware.isLoggedIn, function(req,res){
       // we do no redirect since this is going to be
       // executed in the background
       res.status(200);
-      res.redirect("back");
       }
   });
 });
@@ -147,7 +146,6 @@ router.put("/:post_id/downvote", middleware.isLoggedIn, function(req,res){
       post.save();
       console.log("DOWNVOTED");
       res.status(200);
-      res.redirect("back");
     }
   });
 });

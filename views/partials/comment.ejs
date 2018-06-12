@@ -26,6 +26,8 @@
       <% } %>
     </span>
   </form>
+  <script src="/javascript/comments.js"></script>
+
   <!-- RECURSIVE PARTIAL CALL TO IMPLEMENT INDENTED REPLIES -->
   <% if(comment.comments){ %>
     <% comment.comments.forEach(function(reply){ %>
