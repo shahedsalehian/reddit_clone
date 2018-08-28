@@ -1,15 +1,6 @@
-document.addEventListener("DOMContentLoaded", () => {
-  let upvote = document.querySelectorAll('.upvote');
-  upvote.forEach((item) => {
-    item.firstElementChild.onclick = () => {
-      alert(item.dataset.postId);
-    }
-  });
-
-  let downvote = document.querySelectorAll('.downvote');
-  downvote.forEach((item) => {
-    item.firstElementChild.onclick = () => {
-      alert(item.dataset.postId);
-    }
-  });
-});
+// fetch(`https://localhost:8000/s/${sub._id}/posts/${post._id}/upvote`, {
+//     method: 'PUT'
+// }).then(checkStatus)
+//   .then(function(){
+//       console.log("UPVOTE");
+//   });
