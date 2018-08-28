@@ -120,32 +120,31 @@ router.put("/:post_id", middleware.checkPostOwnership, function(req,res){
 
 
 //UPVOTE POST
-router.put("/:post_id/upvote", middleware.isLoggedIn, function(req,res){
+router.post("/:post_id/upvote", middleware.isLoggedIn, function(req,res){
   Post.findById(req.params.post_id, function(err,post){
     if(err){
       console.log(err);
+      res.redirect("/s/" + req.params.id)
     }else{
+      console.log(req.params);
       post.score++;
       post.save();
-      console.log("UPVOTED");
-      // we are returning only a status of 200
-      // we do no redirect since this is going to be
-      // executed in the background
-      res.status(200);
-      }
+      res.redirect("/s/" + req.params.id);
+    }
   });
 });
 
 //DOWNVOTE POST
-router.put("/:post_id/downvote", middleware.isLoggedIn, function(req,res){
+router.post("/:post_id/downvote", middleware.isLoggedIn, function(req,res){
   Post.findById(req.params.post_id, function(err,post){
     if(err){
       console.log(err);
+      res.redirect("/s/" + req.params.id)
     }else{
+      console.log(req.params);
       post.score--;
       post.save();
-      console.log("DOWNVOTED");
-      res.status(200);
+      res.redirect("/s/" + req.params.id);
     }
   });
 });

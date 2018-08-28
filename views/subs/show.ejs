@@ -15,11 +15,11 @@
     <% sub.posts.forEach(function(post){ %>
       <div class="post-list-item">
           <div class="score-container">
-            <form class="arrow" action="/s/<%= sub._id %>/posts/<%= post._id %>/upvote?_method=PUT" method="POST">
+            <form class="arrow" action="/s/<%= sub._id %>/posts/<%= post._id %>/upvote" method="POST">
               <button type="submit" class="arrow-up"></button>
             </form>
               <div class="score"><%= post.score %></div>
-            <form class="arrow" action="/s/<%= sub._id %>/posts/<%= post._id %>/downvote?_method=PUT" method="POST">
+            <form class="arrow" action="/s/<%= sub._id %>/posts/<%= post._id %>/downvote" method="POST">
                 <button type="submit" class="arrow-down"></button>
             </form>
           </div>
