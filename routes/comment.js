@@ -82,30 +82,28 @@ router.delete("/:comment_id", middleware.checkCommentOwnership, function(req,res
 });
 
 //UPVOTE COMMENT
-router.put("/:comment_id/upvote", middleware.isLoggedIn, function(req,res){
+router.post("/:comment_id/upvote", middleware.isLoggedIn, function(req,res){
   Comment.findById(req.params.comment_id, function(err,comment){
     if(err){
       console.log(err);
     }else{
       comment.score++;
       comment.save();
-      // we are returning only a status of 200
-      // we do no redirect since this is going to be
-      // executed in the background
-      res.status(200);
+
+      res.redirect("/s/" + req.params.id + "/posts/" + req.params.post_id);
     }
   });
 });
 
 //DOWNVOTE COMMENT
-router.put("/:comment_id/downvote", middleware.isLoggedIn, function(req,res){
+router.post("/:comment_id/downvote", middleware.isLoggedIn, function(req,res){
   Comment.findById(req.params.comment_id, function(err,comment){
     if(err){
       console.log(err);
     }else{
       comment.score--;
       comment.save();
-      res.status(200);
+      res.redirect("/s/" + req.params.id + "/posts/" + req.params.post_id);
     }
   });
 });
