@@ -1,25 +1,25 @@
 // packages
-const express 			  = require("express");
-const mongoose 			  = require("mongoose");
-const bodyParser 		  = require("body-parser");
-const methodOverride	= require("method-override");
-const passport        = require("passport");
-const flash           = require("connect-flash");
-const LocalStrategy   = require("passport-local");
+const express 			  	= require("express");
+const mongoose 			  	= require("mongoose");
+const bodyParser 			= require("body-parser");
+const methodOverride		= require("method-override");
+const passport        		= require("passport");
+const flash           		= require("connect-flash");
+const LocalStrategy   		= require("passport-local");
 const app 				    = express();
 
 //models
-const User 				  = require("./models/user");
-const Post 			    = require("./models/post");
-const Sub 				  = require("./models/sub");
-const Comment 			= require("./models/comment");
+const User 				  	= require("./models/user");
+const Post 			    	= require("./models/post");
+const Sub 				  	= require("./models/sub");
+const Comment 				= require("./models/comment");
 
 //Routes
-const indexRoutes 	= require("./routes/index");
-const subRoutes 		= require("./routes/sub");
-const postRoutes    = require("./routes/post");
-const commentRoutes = require("./routes/comment");
-const repliesRoutes = require("./routes/replies");
+const indexRoutes 			= require("./routes/index");
+const subRoutes 			= require("./routes/sub");
+const postRoutes    		= require("./routes/post");
+const commentRoutes 		= require("./routes/comment");
+const repliesRoutes 		= require("./routes/replies");
 
 //app Config
 app.set("view engine", "ejs");
@@ -33,7 +33,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(flash());
 
 //MongoDB Config
-mongoose.connect("mongodb://localhost/reddit", {useMongoClient: true});
+mongoose.connect("mongodb://db/reddit", {useMongoClient: true});
 mongoose.Promise = global.Promise;
 // mongoose.set('debug', true)
 

@@ -1,0 +1,23 @@
+version: '3.3'
+
+services:
+    app:
+        build: .
+        restart: always
+        ports:
+            - 8000:8000
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
+        links:
+            - db
+    db:
+        image: mongo
+        restart: always
+        volumes:
+            - ./data/db:/data/db
+        ports:
+            - 27017:27017
+        environment:
+          - MONGO_DATA_DIR=/data/db
+          - MONGO_LOG_DIR=/dev/null
