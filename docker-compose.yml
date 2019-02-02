@@ -11,6 +11,8 @@ services:
             - /usr/src/app/node_modules
         links:
             - db
+        depends_on:
+            - db
     db:
         image: mongo
         restart: always

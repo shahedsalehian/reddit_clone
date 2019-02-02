@@ -33,7 +33,7 @@ app.use(express.static(__dirname + "/public"));
 app.use(flash());
 
 //MongoDB Config
-mongoose.connect("mongodb://db/reddit", {useMongoClient: true});
+mongoose.connect("mongodb://db:27017/reddit", {useNewUrlParser: true});
 mongoose.Promise = global.Promise;
 // mongoose.set('debug', true)
 
